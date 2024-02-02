@@ -14,6 +14,7 @@ class User(db.Model, UserMixin):
     email = db.Column(db.String(255), nullable=False, unique=True)
     hashed_password = db.Column(db.String(255), nullable=False)
 
+
     @property
     def password(self):
         return self.hashed_password
@@ -26,8 +27,11 @@ class User(db.Model, UserMixin):
         return check_password_hash(self.password, password)
 
     def to_dict(self):
+        reviews = len(self.reviews)
         return {
             'id': self.id,
             'username': self.username,
-            'email': self.email
+            'email': self.email,
+            "reviews":reviews,
+            "products":len(self.products)
         }
