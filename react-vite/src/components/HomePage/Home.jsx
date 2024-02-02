@@ -20,7 +20,7 @@ const HomePage = () => {
                             <div className='producthead' key={product.id}>
                                 {product.category}{product.createdAt}
                             </div>
-                            <div classNamee='imgHolder'><p className="img">penis</p></div>
+                            <div classNamee='imgHolder'><p className="img">Product image</p></div>
                             <div className='prodname'>{product.name}</div>
                             <div className='bottomcont'>{product.return_policy} {product.price}</div>
                         </div>

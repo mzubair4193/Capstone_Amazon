@@ -8,6 +8,9 @@ function Navigation() {
       <div>
         <NavLink to="/">Home</NavLink>
       </div>
+    
+        <NavLink  >Headphones</NavLink>
+    
 
       <div>
         <ProfileButton />
