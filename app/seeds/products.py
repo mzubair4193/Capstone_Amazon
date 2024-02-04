@@ -266,23 +266,20 @@ f = Faker(locale='en_US')
 def seed_products():
     allProducts = []
     for i in range(1, 10):
+        owner_id = randint(1, 3)
         headphones = Product(
             name=headphones1[i],
             price = f.random_number(digits=2),
             description=headphone_description1[i],
-            category="Headphones",
             created_at=datetime.now(),
-            free_shipping=random.choice([True, False]),
-            shipping_time=random.choice([14, 7, 2]),
+            owner_id=owner_id,
             return_policy=random.choice(['30 day return', 'Must be unopened and unused', 'No returns']))
         laptops = Product(
             name=laptops1[i],
             price = f.random_number(digits=2),
             description=random.choice(laptop_descriptions1),
-            category="Laptops",
             created_at=datetime.now(),
-            free_shipping=random.choice([True, False]),
-            shipping_time=random.choice([14, 7, 2]),
+            owner_id=owner_id,
             return_policy=random.choice(['90 day return', 'Must be unopened and unused', 'No returns'])
         )
 
@@ -290,10 +287,8 @@ def seed_products():
             name=tv_video1[i],
             price = f.random_number(digits=2),
             description=random.choice(tv_descriptions1),
-            category="TV/Video",
             created_at=datetime.now(),
-            free_shipping=random.choice([True, False]),
-            shipping_time=random.choice([14, 7, 2]),
+            owner_id=owner_id,
             return_policy=random.choice(['90 day return', 'Must be unopened and unused', 'No returns'])
         )
 
@@ -301,10 +296,8 @@ def seed_products():
             name=pet_supplies1[i],
             price = f.random_number(digits=2),
             description=random.choice(pet_supplies_desc1),
-            category="Pet Supplies",
             created_at=datetime.now(),
-            free_shipping=random.choice([True, False]),
-            shipping_time=random.choice([14, 7, 2]),
+            owner_id=owner_id,
             return_policy=random.choice(['90 day return', 'Must be unopened and unused', 'No returns'])
         )
 
@@ -312,10 +305,8 @@ def seed_products():
             name=kids_toys1[i],
             price = f.random_number(digits=2),
             description=random.choice(kids_toys_desc1),
-            category="Kids Toys",
             created_at=datetime.now(),
-            free_shipping=random.choice([True, False]),
-            shipping_time=random.choice([14, 7, 2]),
+            owner_id=owner_id,
             return_policy=random.choice(['90 day return', 'Must be unopened and unused', 'No returns'])
         )
 
@@ -323,10 +314,8 @@ def seed_products():
             name=automotive_industrial1[i],
             price = f.random_number(digits=2),
             description=random.choice(automotive_industrial_desc1),
-            category="Automotive/Industrial",
             created_at=datetime.now(),
-            free_shipping=random.choice([True, False]),
-            shipping_time=random.choice([14, 7, 2]),
+            owner_id=owner_id,
             return_policy=random.choice(['90 day return', 'Must be unopened and unused', 'No returns'])
         )
 
@@ -334,10 +323,8 @@ def seed_products():
             name=sports_outdoors1[i],
             price = f.random_number(digits=2),
             description=random.choice(sports_outdoors_desc1),
-            category="Sports/Outdoors",
             created_at=datetime.now(),
-            free_shipping=random.choice([True, False]),
-            shipping_time=random.choice([14, 7, 2]),
+            owner_id=owner_id,
             return_policy=random.choice(['90 day return', 'Must be unopened and unused', 'No returns'])
         )
 
@@ -345,10 +332,8 @@ def seed_products():
             name=beauty_health1[i],
             price = f.random_number(digits=2),
             description=random.choice(beauty_health_desc1),
-            category="Beauty/Health",
             created_at=datetime.now(),
-            free_shipping=random.choice([True, False]),
-            shipping_time=random.choice([14, 7, 2]),
+            owner_id=owner_id,
             return_policy=random.choice(['90 day return', 'Must be unopened and unused', 'No returns'])
         )
 
@@ -356,10 +341,8 @@ def seed_products():
             name=movies_music_games1[i],
             price = f.random_number(digits=2),
             description=random.choice(movies_music_games_desc1),
-            category="Movies/Music/Games",
             created_at=datetime.now(),
-            free_shipping=random.choice([True, False]),
-            shipping_time=random.choice([14, 7, 2]),
+            owner_id=owner_id,
             return_policy=random.choice(['90 day return', 'Must be unopened and unused', 'No returns'])
         )
 

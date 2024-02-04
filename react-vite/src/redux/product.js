@@ -7,6 +7,14 @@ const DELETE_PRODUCT = "products/deleteProduct";
 const UPDATE_PRODUCT = "products/updateProduct";
 const CLEAR_STATE = "products/clearState"
 const GET_USER_STORE = "products/getUserStore";
+const GET_PRODUCT_DETAILS = "product/getProductDetails"
+
+const getProductDetails = (product) => {
+    return {
+        type:GET_PRODUCT_DETAILS,
+        product
+    }
+}
 
 const getAllProducts = (products) => {
     return {
@@ -71,6 +79,26 @@ const getUserStore = (products) => {
     }
 }
 
+export const thunkGetProductDetails = (productId) => async (dispatch) => {
+
+      const response = await fetch(`/api/products/${productId}`);
+      
+      if (response.ok) {
+        console.log("good response")
+        console.log("Good response status:", response.status);
+        console.log("Content-Type:", response.headers.get("Content-Type"));
+  
+        const productDetails = await response.json();
+        // console("returned dets", productDetails)
+        dispatch(getProductDetails(productDetails));
+        return productDetails;
+      } else {
+        const error = await response.json();
+        console.error('Error fetching product details:', error);
+        return { error: 'Failed to fetch product details' };
+      }
+
+  };
 
 export const thunkGetAllProducts = () => async (dispatch) => {
     const response = await fetch("/api/products/all");
@@ -138,7 +166,7 @@ export const thunkGetAllByCat = (category) => async (dispatch) => {
 };
 
 export const thunkCreateProduct =
-    (productFormData, images) => async (dispatch) => {
+    (productFormData) => async (dispatch) => {
         const response = await fetch("/api/products/new", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
@@ -146,28 +174,12 @@ export const thunkCreateProduct =
         });
 
         if (response.ok) {
+            console.log("post product thunk")
             const newProduct = await response.json();
 
-            let imageResponse
-
-            for (let image of images) {
-
-                console.log(newProduct.product.id);
-                imageResponse = await fetch(
-                    `/api/products/${newProduct.product.id}/images/new`,
-                    {
-                        method: "POST",
-                        headers: { "Content-Type": "application/json" },
-                        body: JSON.stringify({
-                            url: image,
-                        }),
-                    }
-                );
-            }
-            const completeImage = await imageResponse.json();
-
+            
             // ! Consider attaching images or revisit to see if we need/should return images
-            dispatch(createProduct(completeImage));
+            dispatch(createProduct(newProduct));
 
             return newProduct;
         } else {
@@ -182,7 +194,7 @@ export const thunkDeleteProduct = (productId) => async (dispatch) => {
         headers: { "Content-Type": "application/json" },
     });
     // console.log(response)
-    await dispatch(thunkGetAllProducts())
+    // await dispatch(thunkGetAllProducts())
 
     if (response.ok) {
         const message = await response.json();
@@ -281,9 +293,9 @@ function productReducer(state = {}, action) {
 
         }
         case CREATE_PRODUCT: {
-            const product = action.product.product;
+            // const product = action.product.product;
             const newState = { ...state };
-            newState[product.id] = product;
+            // newState[product.id] = product;
             return newState;
         }
         case DELETE_PRODUCT: {
@@ -308,6 +320,10 @@ function productReducer(state = {}, action) {
 
             return newState;
         }
+        case GET_PRODUCT_DETAILS:
+            return {
+              product: action.product,
+            };
         default:
             return state;
     }

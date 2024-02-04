@@ -3,7 +3,8 @@ import LoginFormPage from '../components/LoginFormPage';
 import SignupFormPage from '../components/SignupFormPage';
 import Layout from './Layout';
 import HomePage from '../components/HomePage/Home';
-import ProductsByCategory from '../components/ProductsPage/Category'; // Import the component
+// import ProductsByCategory from '../components/ProductsPage/Category'; // Import the component
+import ProductPage from '../components/ProductPage/ProductPage';
 
 
 export const router = createBrowserRouter([
@@ -23,8 +24,8 @@ export const router = createBrowserRouter([
         element: <SignupFormPage />,
       },
       {
-        path: "/beauty-health",
-        element: <ProductsByCategory category="Beauty/Health" />,
+        path: "/products/:id",
+        element: <ProductPage />,
       },
     ],
   },

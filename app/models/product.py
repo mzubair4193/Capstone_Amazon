@@ -11,12 +11,12 @@ class Product(db.Model):
     name = db.Column(db.String(255), nullable=False)
     price = db.Column(db.Numeric(4,2), nullable=False)
     description = db.Column(db.Text)
-    category = db.Column(db.String(30), nullable=False)
-    free_shipping = db.Column(db.Boolean)
     return_policy = db.Column(db.Text)
-    shipping_time = db.Column(db.Integer)
     created_at = db.Column(db.DateTime, default=datetime.now)
     updated_at = db.Column(db.DateTime, default=datetime.now, onupdate=datetime.now)
+
+    owner_id = db.Column(db.Integer, db.ForeignKey('users.id'), nullable=False)
+    owner = db.relationship('User', back_populates='products')
 
     def to_dict(self):
         return {
@@ -24,10 +24,8 @@ class Product(db.Model):
             'name': self.name,
             'price': self.price,
             'description': self.description,
-            'category': self.category,
-            'free_shipping': self.free_shipping,
             'return_policy': self.return_policy,
-            'shipping_time': self.shipping_time,
+            'owner_id': self.owner_id, 
             'createdAt': self.created_at,
             'updatedAt': self.updated_at
         }

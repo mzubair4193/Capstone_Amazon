@@ -1,5 +1,5 @@
 from flask import Blueprint, request, jsonify
-# from app.forms import ProductForm, ImageForm
+from app.forms.product_form import ProductForm
 from flask_login import current_user, login_required
 from app.models import db, Product
 from sqlalchemy import desc
@@ -73,7 +73,7 @@ def get_product_details(id):
     product = Product.query.get(id)
     if product is None:
         return {"message": "Product doesn't exist"}, 404
-    return {"product":product.to_dict()}
+    return product.to_dict()
 
 #get all products of the current user
 @product_routes.route('/current', methods=['GET'])
@@ -94,22 +94,20 @@ def create_product():
         data = form.data
 
         newProduct = Product(
-            sellerId=current_user.id,
             name=data["name"],
             description=data["description"],
             price=data["price"],
-            category=data["category"],
-            shipping_time=data["shipping_time"],
             return_policy=data["return_policy"],
-            free_shipping=data["free_shipping"]
+            owner_id=current_user.id    
         )
 
         db.session.add(newProduct)
         db.session.commit()
 
-        return {"product": newProduct.to_dict()}
+        return newProduct.to_dict()
     else:
-        return form.errors, 401
+        return {"error": "Invalid request data"}, 400
+
 
 @product_routes.route('/<int:id>', methods=['PUT'])
 @login_required
@@ -119,7 +117,7 @@ def update_product(id):
     if product is None:
         return {'message': "Product doesn't exist"}, 404
 
-    if current_user.id != product.sellerId:
+    if current_user.id != product.owner_id:
         return {'message': "You do not have permission to update this product"}, 403
 
     form = ProductForm()
@@ -128,14 +126,11 @@ def update_product(id):
 
     if form.validate_on_submit():
  
-        product.sellerId = current_user.id
+        product.owner_id = current_user.id
         product.name = form.name.data
         product.description = form.description.data
         product.price = form.price.data
-        product.category = form.category.data
-        product.shipping_time = form.shipping_time.data
         product.return_policy = form.return_policy.data
-        product.free_shipping = form.free_shipping.data
 
         print(product)
 
@@ -158,7 +153,7 @@ def delete_specific_product(id):
     if product is None:
         return {'message': "Product doesn't exist"}, 404
 
-    if current_user.id != product.sellerId:
+    if current_user.id != product.owner_id:
         return {'message': "You do not have permission to delete this product"}, 403
 
     db.session.delete(product)
