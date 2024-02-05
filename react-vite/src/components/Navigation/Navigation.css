@@ -5,4 +5,11 @@
 .navigation-container {
   display: flex;
   justify-content: space-around;
+  align-items: center;
+  background-color: #131921;
+}
+
+.search-bar {
+  width: 350px;
+  height: 35px;
 }

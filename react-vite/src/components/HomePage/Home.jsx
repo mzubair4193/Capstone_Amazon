@@ -18,6 +18,19 @@ const HomePage = () => {
     // if (!products) return null
     return (
         <>
+        <div className="nav-links-container" >
+                <NavLink> Headphones </NavLink>
+                <NavLink> Laptops </NavLink>
+                <NavLink> TV/Video </NavLink>
+                <NavLink> Pet Supplies </NavLink>
+                <NavLink> Kids Toys </NavLink>
+                <NavLink> Automotive/Industrial </NavLink>
+                <NavLink> Sports/Outdors </NavLink>
+                <NavLink> Beauty/Health </NavLink>
+                <NavLink> Movies/Music/Games  </NavLink>
+                </div>
+
+
             <div className="maincont">
                 {products.map((product) => {
                     return (
@@ -42,7 +55,6 @@ const HomePage = () => {
                         </div>
                     );
                 }).reverse()}
-
             </div>
         </>
     )

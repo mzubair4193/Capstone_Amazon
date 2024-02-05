@@ -16,3 +16,15 @@
     border: 1px solid black;
     height: 300px;
 }
+
+.nav-links-container {
+    display: flex;
+    justify-content: space-between;
+    border: 1px solid grey;
+    margin-bottom: 10px;
+    padding-bottom: 10px;
+    padding-top: 10px;
+    /* background-color: #232F3E;
+    text-decoration: none;
+    color; */
+}

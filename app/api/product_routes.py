@@ -20,7 +20,7 @@ def get_all_products():
     #     page = 1
     # page = (int(page) - 1) * 10
     # products = Product.query.order_by(desc(Product.created_at)).limit(10).offset(page).all()
-    products = Product.query.order_by((Product.created_at).desc()).all()
+    products = Product.query.order_by(desc(Product.created_at)).all()
 
     if not products:
         return {"message": "That page does not exist"}, 404
