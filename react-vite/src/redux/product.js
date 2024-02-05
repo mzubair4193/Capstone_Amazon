@@ -219,7 +219,7 @@ export const thunkUpdateProduct = (productId, product) => async (dispatch) => {
 
     if (response.ok) {
         const updatedProduct = await response.json();
-
+        console.log(updatedProduct,"<----------updated product")
         dispatch(updateProduct(updatedProduct));
 
         return updatedProduct;

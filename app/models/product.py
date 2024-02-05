@@ -11,6 +11,7 @@ class Product(db.Model):
     name = db.Column(db.String(255), nullable=False)
     price = db.Column(db.Numeric(4,2), nullable=False)
     description = db.Column(db.Text)
+    category = db.Column(db.String, nullable=False)
     return_policy = db.Column(db.Text)
     created_at = db.Column(db.DateTime, default=datetime.now)
     updated_at = db.Column(db.DateTime, default=datetime.now, onupdate=datetime.now)
@@ -24,6 +25,7 @@ class Product(db.Model):
             'name': self.name,
             'price': self.price,
             'description': self.description,
+            'category': self.category,
             'return_policy': self.return_policy,
             'owner_id': self.owner_id, 
             'createdAt': self.created_at,

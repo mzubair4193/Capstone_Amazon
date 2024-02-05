@@ -12,22 +12,22 @@ const HomePage = () => {
     const user = useSelector((state) => state.session.user)
     useEffect(() => {
         dispatch(thunkGetAllProducts())
-    }, [dispatch])
+    }, [])
 
     console.log(products)
     // if (!products) return null
     return (
         <>
         <div className="nav-links-container" >
-                <NavLink> Headphones </NavLink>
-                <NavLink> Laptops </NavLink>
-                <NavLink> TV/Video </NavLink>
-                <NavLink> Pet Supplies </NavLink>
-                <NavLink> Kids Toys </NavLink>
-                <NavLink> Automotive/Industrial </NavLink>
-                <NavLink> Sports/Outdors </NavLink>
-                <NavLink> Beauty/Health </NavLink>
-                <NavLink> Movies/Music/Games  </NavLink>
+                <NavLink to={"/category/headphones"} > Headphones </NavLink>
+                <NavLink to={"/category/laptops"}> Laptops </NavLink>
+                <NavLink to={"/category/tv_video"}> TV/Video </NavLink>
+                <NavLink to={"/category/pet_supplies"}> Pet Supplies </NavLink>
+                <NavLink to={"/category/kids_toys"}> Kids Toys </NavLink>
+                <NavLink to={"/category/automotive_industrial"}> Automotive/Industrial </NavLink>
+                <NavLink to={"/category/sports_outdoors"}> Sports/Outdors </NavLink>
+                <NavLink to={"/category/beauty_health"}> Beauty/Health </NavLink>
+                <NavLink to={"/category/movies_music_games"}> Movies/Music/Games  </NavLink>
                 </div>
 
 

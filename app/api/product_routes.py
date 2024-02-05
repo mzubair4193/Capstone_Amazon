@@ -55,14 +55,11 @@ def get_all_products_with_images():
 
 
 #get all products by category
-@product_routes.route('/category/<cat>')
-def get_products_by_category(cat):
-    print(cat)
-    if cat not in ['Headphones', 'Laptops', 'TV/Video', 'Pet Supplies', 'Kids Toys', 'Automotive/Industrial', 'Sports/Outdoors', 'Beauty/Health', 'Movies/Music/Games']:
-        return {"message": "Category doesn't exist"}, 404
-    page = request.args.get('page')
+@product_routes.route('/category/<string:cate>')
+def get_products_by_category(cate):
+  
 
-    products = Product.query.filter_by(category=cat).all()
+    products = Product.query.filter(Product.category==cate).all()
     if not products:
         return {"message": "That page does not exist"}, 404
     return {"products": [product.to_dict() for product in products]}

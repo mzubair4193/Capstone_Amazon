@@ -5,7 +5,7 @@ import Layout from './Layout';
 import HomePage from '../components/HomePage/Home';
 // import ProductsByCategory from '../components/ProductsPage/Category'; // Import the component
 import ProductPage from '../components/ProductPage/ProductPage';
-
+import CategoryPage from '../components/CategoryPage/CategoryPage';
 
 export const router = createBrowserRouter([
   {
@@ -26,6 +26,10 @@ export const router = createBrowserRouter([
       {
         path: "/products/:id",
         element: <ProductPage />,
+      },
+      {
+        path: "/category/:id",
+        element: <CategoryPage />,
       },
     ],
   },
