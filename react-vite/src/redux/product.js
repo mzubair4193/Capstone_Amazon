@@ -11,7 +11,7 @@ const GET_PRODUCT_DETAILS = "product/getProductDetails"
 
 const getProductDetails = (product) => {
     return {
-        type:GET_PRODUCT_DETAILS,
+        type: GET_PRODUCT_DETAILS,
         product
     }
 }
@@ -81,24 +81,24 @@ const getUserStore = (products) => {
 
 export const thunkGetProductDetails = (productId) => async (dispatch) => {
 
-      const response = await fetch(`/api/products/${productId}`);
-      
-      if (response.ok) {
+    const response = await fetch(`/api/products/${productId}`);
+
+    if (response.ok) {
         console.log("good response")
         console.log("Good response status:", response.status);
         console.log("Content-Type:", response.headers.get("Content-Type"));
-  
+
         const productDetails = await response.json();
         // console("returned dets", productDetails)
         dispatch(getProductDetails(productDetails));
         return productDetails;
-      } else {
+    } else {
         const error = await response.json();
         console.error('Error fetching product details:', error);
         return { error: 'Failed to fetch product details' };
-      }
+    }
 
-  };
+};
 
 export const thunkGetAllProducts = () => async (dispatch) => {
     const response = await fetch("/api/products/all");
@@ -177,7 +177,7 @@ export const thunkCreateProduct =
             console.log("post product thunk")
             const newProduct = await response.json();
 
-            
+
             // ! Consider attaching images or revisit to see if we need/should return images
             dispatch(createProduct(newProduct));
 
@@ -219,7 +219,7 @@ export const thunkUpdateProduct = (productId, product) => async (dispatch) => {
 
     if (response.ok) {
         const updatedProduct = await response.json();
-        console.log(updatedProduct,"<----------updated product")
+        console.log(updatedProduct, "<----------updated product")
         dispatch(updateProduct(updatedProduct));
 
         return updatedProduct;
@@ -251,15 +251,7 @@ export const thunkGetUserStore = () => async (dispatch) => {
 function productReducer(state = {}, action) {
     switch (action.type) {
         case GET_ALL_PRODUCTS: {
-            let products = action.products.products;
-            // console.log(products)
-            let newProducts = {};
-
-            products.map((product) => {
-                newProducts[product.id] = product;
-            });
-
-            return { ...state, ...newProducts };
+            return { ...action.products.products };
         }
         case GET_ALL_PRODUCTS_IMAGES: {
             let products = action.products.products;
@@ -322,7 +314,7 @@ function productReducer(state = {}, action) {
         }
         case GET_PRODUCT_DETAILS:
             return {
-              product: action.product,
+                product: action.product,
             };
         default:
             return state;

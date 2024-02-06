@@ -93,7 +93,6 @@ def create_product():
         newProduct = Product(
             name=data["name"],
             description=data["description"],
-            category=data["category"],
             price=data["price"],
             return_policy=data["return_policy"],
             owner_id=current_user.id    
@@ -127,7 +126,6 @@ def update_product(id):
         product.owner_id = current_user.id
         product.name = form.name.data
         product.description = form.description.data
-        product.category= form.category.data,
         product.price = form.price.data
         product.return_policy = form.return_policy.data
 

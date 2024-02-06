@@ -12,13 +12,13 @@ const HomePage = () => {
     const user = useSelector((state) => state.session.user)
     useEffect(() => {
         dispatch(thunkGetAllProducts())
-    }, [])
+    }, [dispatch])
 
     console.log(products)
     // if (!products) return null
     return (
         <>
-        <div className="nav-links-container" >
+            <div className="nav-links-container" >
                 <NavLink to={"/category/headphones"} > Headphones </NavLink>
                 <NavLink to={"/category/laptops"}> Laptops </NavLink>
                 <NavLink to={"/category/tv_video"}> TV/Video </NavLink>
@@ -28,7 +28,7 @@ const HomePage = () => {
                 <NavLink to={"/category/sports_outdoors"}> Sports/Outdors </NavLink>
                 <NavLink to={"/category/beauty_health"}> Beauty/Health </NavLink>
                 <NavLink to={"/category/movies_music_games"}> Movies/Music/Games  </NavLink>
-                </div>
+            </div>
 
 
             <div className="maincont">
@@ -37,24 +37,24 @@ const HomePage = () => {
                         <div className="productcont" key={product.id}>
                             <NavLink to={`/products/${product.id}`} >
 
-                            <div className='producthead'>
-                                {product.category}{product.createdAt}
-                            </div>
-                            <div className='imgHolder'><img className="img" src="https://placehold.co/600x400"></img></div>
-                            <div className='prodname'>{product.name}</div>
-                            <div className='bottomcont'>{product.price}</div>
+                                <div className='producthead'>
+                                    {product.category}{product.createdAt}
+                                </div>
+                                <div className='imgHolder'><img className="img" src="https://placehold.co/600x400"></img></div>
+                                <div className='prodname'>{product.name}</div>
+                                <div className='bottomcont'>{product.price}</div>
+                            </NavLink>
                             <div className='productbuttons'>
-                            {user && user.id === product.owner_id && (
-                                <OpenModalButton buttonText={"Update"} modalComponent={<UpdateProduct product={product} />} />
-                                )}    
-                            {user && user.id === product.owner_id && (
-                                <OpenModalButton buttonText={"Delete"} modalComponent={<DeleteProduct product={product} />} />
-                                )}    
+                                {user && user.id === product.owner_id && (
+                                    <OpenModalButton buttonText={"Update"} modalComponent={<UpdateProduct product={product} />} />
+                                )}
+                                {user && user.id === product.owner_id && (
+                                    <OpenModalButton buttonText={"Delete"} modalComponent={<DeleteProduct product={product} />} />
+                                )}
                             </div>
-                                </NavLink>
                         </div>
                     );
-                }).reverse()}
+                })}
             </div>
         </>
     )
