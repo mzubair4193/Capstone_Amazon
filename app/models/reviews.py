@@ -23,6 +23,7 @@ class Review(db.Model):
         converted_review = {
             "id": self.id,
             "user": self.user.to_dict(),
+            "userId": self.userId,
             "product_id": self.productId,
             "review_text": self.reviewText,
             "star_rating": self.starRating,

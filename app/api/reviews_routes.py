@@ -21,25 +21,25 @@ def create_review(product_id):
     if not product:
         return {"message": "Product not found"}, 404
 
-    form = ReviewForm(request.form)
+    form = ReviewForm()
+    form['csrf_token'].data = request.cookies['csrf_token']
 
     if form.validate_on_submit():
-        review_text = form.reviewText.data
-        star_rating = form.starRating.data
+        data = form.data
 
         new_review = Review(
             userId=current_user.id,
             productId=product_id,
-            reviewText=review_text,
-            starRating=star_rating
+            reviewText=data['reviewText'],
+            starRating=data['starRating']
         )
 
         db.session.add(new_review)
         db.session.commit()
-
+        print("AAAAAAAAAAAAAAAAAAAAAAAAA", new_review)
         return new_review.to_dict(), 201
     else:
-        return {"error": "Invalid review data"}, 400
+        return {"error": "Invalid review data"}, 400, print(form.errors)
 
 
 @review_routes.route('/<int:review_id>', methods=['PUT'])
@@ -53,11 +53,12 @@ def update_review(review_id):
     if current_user.id != review.userId:
         return {"message": "You do not have permission to update this review"}, 403
 
-    form = ReviewForm(request.form)
+    form = ReviewForm()
+    form['csrf_token'].data = request.cookies['csrf_token']
 
     if form.validate_on_submit():
-        review.reviewText = form.reviewText.data
-        review.starRating = form.starRating.data
+        review.reviewText = form.data['reviewText']
+        review.starRating = form.data['starRating']
 
         db.session.commit()
 

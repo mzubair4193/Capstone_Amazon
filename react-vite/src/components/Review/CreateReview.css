@@ -1,0 +1,15 @@
+.star-on {
+    color: yellow;
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+
+}
+
+.star-off {
+    color: lightgrey;
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+
+}

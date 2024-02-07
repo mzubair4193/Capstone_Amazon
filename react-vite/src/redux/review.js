@@ -77,7 +77,7 @@ export const thunkLoadProductReviews = (productId) => async (dispatch) => {
             dispatch(loadProductReviews(productReviews));
             return productReviews;
         } else {
-            console.error('Error loading product reviews:', res.status);
+            return null
         }
     } catch (error) {
         console.error('Error loading product reviews:', error);
@@ -124,19 +124,19 @@ const reviewsReducer = (state = initialState, action) => {
         case POST_REVIEW:
             return {
                 ...state,
-                productReviews: [...state.productReviews, action.review],
+                reviews: [...state.productReviews, action.review],
             };
         case DELETE_REVIEW:
             return {
                 ...state,
-                productReviews: state.productReviews.filter(
+                reviews: (state.reviews.reviews || []).filter(
                     (review) => review.reviewId !== action.reviewId
                 ),
             };
         case UPDATE_REVIEW:
             return {
                 ...state,
-                productReviews: state.productReviews.map((review) =>
+                reviews: state.reviews.reviews.map((review) =>
                     review.reviewId === action.review.reviewId ? action.review : review
                 ),
             };

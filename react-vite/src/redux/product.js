@@ -197,10 +197,10 @@ export const thunkDeleteProduct = (productId) => async (dispatch) => {
     // await dispatch(thunkGetAllProducts())
 
     if (response.ok) {
-        const message = await response.json();
+        // const message = await response.json();
         dispatch(deleteProduct(productId));
-        console.log(message)
-        return message;
+        // console.log(message)
+        // return message;
     } else {
         const error = await response.json();
         // console.log(error, "Here is the error")

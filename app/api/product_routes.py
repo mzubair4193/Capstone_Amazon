@@ -1,7 +1,7 @@
 from flask import Blueprint, request, jsonify
 from app.forms.product_form import ProductForm
 from flask_login import current_user, login_required
-from app.models import db, Product
+from app.models import db, Product, Review
 from sqlalchemy import desc
 
 product_routes = Blueprint("products",__name__)
@@ -57,7 +57,7 @@ def get_all_products_with_images():
 #get all products by category
 @product_routes.route('/category/<string:cate>')
 def get_products_by_category(cate):
-  
+
 
     products = Product.query.filter(Product.category==cate).all()
     if not products:
@@ -96,7 +96,7 @@ def create_product():
             category=data["category"],
             price=data["price"],
             return_policy=data["return_policy"],
-            owner_id=current_user.id    
+            owner_id=current_user.id
         )
 
         db.session.add(newProduct)
@@ -123,13 +123,13 @@ def update_product(id):
     print(form.data)
 
     if form.validate_on_submit():
- 
+
         product.owner_id = current_user.id
-        product.name = form.name.data
-        product.description = form.description.data
-        product.category= form.category.data,
-        product.price = form.price.data
-        product.return_policy = form.return_policy.data
+        product.name = form.data["name"]
+        product.description = form.data["description"]
+        product.category= form.data["category"]
+        product.price = form.data["price"]
+        product.return_policy = form.data["return_policy"]
 
         print(product)
 
@@ -148,6 +148,7 @@ def delete_specific_product(id):
     print("WE ARE IN THE DELETION")
 
     product = Product.query.get(id)
+    Review.query.filter_by(productId=id).delete()
 
     if product is None:
         return {'message': "Product doesn't exist"}, 404
