@@ -3,6 +3,9 @@ import { useDispatch, useSelector } from "react-redux"
 import { thunkGetProductDetails } from "../../redux/product"
 import { useParams } from "react-router-dom"
 import { thunkLoadProductReviews } from "../../redux/review"
+// import OpenModalButton from "../OpenModalButton/OpenModalButton";
+// import ReviewModal from "../Review/Review"
+import ReviewSection from "../Review/Review"
 
 const ProductPage = () => {
     const dispatch = useDispatch()
@@ -26,13 +29,10 @@ const ProductPage = () => {
                 <div className='prodname'>{product.name}</div>
                 <div className='bottomcont'>{product.price}</div>
             </div>
-            {reviews && reviews.map((review) => (
-                <div>
-                    {review.review_text}
-                </div>
-            ))}
+            <ReviewSection />
         </>
     )
 }
+
 
 export default ProductPage
