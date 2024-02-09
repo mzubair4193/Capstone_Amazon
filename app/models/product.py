@@ -12,6 +12,7 @@ class Product(db.Model):
     price = db.Column(db.Numeric(4,2), nullable=False)
     description = db.Column(db.Text)
     category = db.Column(db.String, nullable=False)
+    image = db.Column(db.String(255))
     return_policy = db.Column(db.Text)
     created_at = db.Column(db.DateTime, default=datetime.now)
     updated_at = db.Column(db.DateTime, default=datetime.now, onupdate=datetime.now)
@@ -27,6 +28,7 @@ class Product(db.Model):
             'price': self.price,
             'description': self.description,
             'category': self.category,
+            'image': self.image,
             'return_policy': self.return_policy,
             'owner_id': self.owner_id,
             'createdAt': self.created_at,
