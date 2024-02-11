@@ -3,17 +3,25 @@
     padding: 10px;
     padding-left: 20px;
     padding-right: 25px;
+    height: 60px;
+    font-weight: 100;
 }
 
-.fas .fa-use-circle {
-    padding-right: 30px;
-
+.profile-dropdown-list {
+    gap: 10px;
+    text-decoration: none;
 }
 
-.fa-user-tie {
+.fas  {
     padding: 10px 10px 10px 10px;
+    border-radius: 25px;
+    /* margin-left: 35px; */
 }
 
 .fa-user-tie:hover {
     cursor: pointer;
+}
+
+.dropdown-container {
+    height: fit-content;
 }

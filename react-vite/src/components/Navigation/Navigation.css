@@ -5,6 +5,9 @@
   padding-bottom: 8px;
   cursor: pointer;
   border: 1px solid #222222;
+  height: 45px;
+  width: auto;
+  gap: 10px;
   
 }
 
@@ -21,7 +24,7 @@
 }
 
 .search-bar {
-  width:320px;
+  width:400px;
   padding: 15px;
   border-radius: 100px;
   background-image: url("https://upload.wikimedia.org/wikipedia/commons/5/55/Magnifying_glass_icon.svg");
@@ -29,6 +32,12 @@
   background-repeat: no-repeat;
   background-position: 10px center;
   text-align: center;
+}
+
+.search-bar:focus {
+  border: none;
+  text-decoration: none;
+  background-color: rgb(206, 232, 246);
 }
 
 .business-logo {
