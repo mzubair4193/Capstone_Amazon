@@ -1,18 +1,16 @@
-"""create tables
+"""create
 
-Revision ID: 760c251a61dd
+Revision ID: 9b809387aae7
 Revises: 
-Create Date: 2024-02-07 17:26:31.123718
+Create Date: 2024-02-11 12:57:19.652751
 
 """
 from alembic import op
 import sqlalchemy as sa
-import os
-environment = os.getenv("FLASK_ENV")
-SCHEMA = os.environ.get("SCHEMA")
+
 
 # revision identifiers, used by Alembic.
-revision = '760c251a61dd'
+revision = '9b809387aae7'
 down_revision = None
 branch_labels = None
 depends_on = None
@@ -29,14 +27,12 @@ def upgrade():
     sa.UniqueConstraint('email'),
     sa.UniqueConstraint('username')
     )
-    if environment == "production":
-        op.execute(f"ALTER TABLE users SET SCHEMA {SCHEMA};")
     op.create_table('products',
     sa.Column('id', sa.Integer(), nullable=False),
     sa.Column('name', sa.String(length=255), nullable=False),
     sa.Column('price', sa.Numeric(precision=4, scale=2), nullable=False),
     sa.Column('description', sa.Text(), nullable=True),
-    sa.Column('category', sa.String(), nullable=False),
+    sa.Column('category', sa.String(), nullable=True),
     sa.Column('image', sa.String(length=255), nullable=True),
     sa.Column('return_policy', sa.Text(), nullable=True),
     sa.Column('created_at', sa.DateTime(), nullable=True),
@@ -45,8 +41,6 @@ def upgrade():
     sa.ForeignKeyConstraint(['owner_id'], ['users.id'], ),
     sa.PrimaryKeyConstraint('id')
     )
-    if environment == "production":
-        op.execute(f"ALTER TABLE products SET SCHEMA {SCHEMA};")
     op.create_table('reviews',
     sa.Column('id', sa.Integer(), nullable=False),
     sa.Column('userId', sa.Integer(), nullable=False),
@@ -59,8 +53,6 @@ def upgrade():
     sa.ForeignKeyConstraint(['userId'], ['users.id'], ),
     sa.PrimaryKeyConstraint('id')
     )
-    if environment == "production":
-        op.execute(f"ALTER TABLE reviews SET SCHEMA {SCHEMA};")
     # ### end Alembic commands ###
 
 
