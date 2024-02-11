@@ -42,3 +42,9 @@ body {
     display: flex;
     /* justify-content: flex-end; */
 }
+
+.product-box {
+    text-decoration: none;
+    color: black;
+    
+}

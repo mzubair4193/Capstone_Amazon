@@ -3,6 +3,8 @@ from app.forms.product_form import ProductForm
 from flask_login import current_user, login_required
 from app.models import db, Product, Review
 from sqlalchemy import desc
+from .aws_images import upload_file_to_s3, remove_file_from_s3
+
 
 product_routes = Blueprint("products",__name__)
 
@@ -87,9 +89,9 @@ def get_current_user_products():
 def create_product():
     form = ProductForm()
     form['csrf_token'].data = request.cookies['csrf_token']
+    print ("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA", form.data)
     if form.validate_on_submit():
         data = form.data
-
         newProduct = Product(
             name=data["name"],
             description=data["description"],
@@ -98,6 +100,10 @@ def create_product():
             return_policy=data["return_policy"],
             owner_id=current_user.id
         )
+        if form.image.data:
+            result = upload_file_to_s3(form.image.data)
+            if "url" in result:
+                newProduct.image = result["url"]
 
         db.session.add(newProduct)
         db.session.commit()
@@ -123,6 +129,8 @@ def update_product(id):
     print(form.data)
 
     if form.validate_on_submit():
+        if product.image and form.image.data:
+            remove_file_from_s3(product.image)
 
         product.owner_id = current_user.id
         product.name = form.data["name"]
@@ -132,6 +140,13 @@ def update_product(id):
         product.return_policy = form.data["return_policy"]
 
         print(product)
+
+        if form.image.data:
+            result = upload_file_to_s3(form.image.data)
+            if "url" in result:
+                product.image = result["url"]
+            else:
+                return jsonify(errors=result["errors"])
 
         db.session.commit()
 

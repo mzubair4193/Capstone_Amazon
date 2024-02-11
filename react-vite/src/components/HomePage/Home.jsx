@@ -35,12 +35,12 @@ const HomePage = () => {
                 {products.map((product) => {
                     return (
                         <div className="productcont" key={product.id}>
-                            <NavLink to={`/products/${product.id}`} >
+                            <NavLink to={`/products/${product.id}`} className={"product-box"}>
 
                                 <div className='producthead'>
                                     {product.createdAt}
                                 </div>
-                                <div className='imgHolder'><img className="img" src="https://placehold.co/600x400"></img></div>
+                                <div className='imgHolder'><img className="img" src={product.image || "https://placehold.co/600x400"}></img></div>
                                 <div className='prodname'>{product.name}</div>
                                 <div className='bottomcont'>${product.price}</div>
                             </NavLink>
