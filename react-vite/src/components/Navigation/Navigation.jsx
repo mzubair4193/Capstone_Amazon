@@ -27,12 +27,16 @@ function Navigation() {
 
       </div>
       <div className="create-prod-btn">
-    { user && <OpenModalButton 
-      
-        buttonText={"Create A Product"}
-        modalComponent={<CreateProduct />}
-       />}
-    </div>
+        { user && <OpenModalButton 
+          buttonText={"Create A Product"}
+          modalComponent={
+            <div className="create-product-modal">
+              <CreateProduct />
+            </div>
+          }
+        />}
+      </div>
+
       <div>
         <ProfileButton />
       </div>
@@ -41,3 +45,4 @@ function Navigation() {
 }
 
 export default Navigation;
+// className={'product-create-btn'}

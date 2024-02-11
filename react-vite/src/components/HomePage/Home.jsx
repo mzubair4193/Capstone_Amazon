@@ -1,4 +1,5 @@
 import { useEffect } from "react"
+import { useNavigate } from "react-router-dom"
 import { useDispatch, useSelector } from "react-redux"
 import { thunkGetAllProducts } from "../../redux/product"
 import './Home.css'
@@ -8,6 +9,7 @@ import UpdateProduct from "../EditProduct/EditProduct"
 import { NavLink } from "react-router-dom"
 const HomePage = () => {
     const dispatch = useDispatch()
+    const navigate = useNavigate()
     const products = useSelector((state) => Object.values(state.product))
     const user = useSelector((state) => state.session.user)
     useEffect(() => {
@@ -19,15 +21,15 @@ const HomePage = () => {
     return (
         <>
             <div className="nav-links-container" >
-                <NavLink to={"/category/headphones"} className={'headphone'} > Headphones </NavLink>
-                <NavLink to={"/category/laptops"}> Laptops </NavLink>
-                <NavLink to={"/category/tv_video"}> TV/Video </NavLink>
-                <NavLink to={"/category/pet_supplies"}> Pet Supplies </NavLink>
-                <NavLink to={"/category/kids_toys"}> Kids Toys </NavLink>
-                <NavLink to={"/category/automotive_industrial"}> Automotive/Industrial </NavLink>
-                <NavLink to={"/category/sports_outdoors"}> Sports/Outdors </NavLink>
-                <NavLink to={"/category/beauty_health"}> Beauty/Health </NavLink>
-                <NavLink to={"/category/movies_music_games"}> Movies/Music/Games  </NavLink>
+                <NavLink to={"/category/headphones"} className={'headphone'}  onClick={() => navigate("/")}  > Headphones </NavLink>
+                <NavLink to={"/category/laptops"} className={'headphone'} onClick={() => navigate("/")} > Laptops </NavLink>
+                <NavLink to={"/category/tv_video"} className={'headphone'} onClick={() => navigate("/")} > TV/Video </NavLink>
+                <NavLink to={"/category/pet_supplies"} className={'headphone'} onClick={() => navigate("/")} > Pet Supplies </NavLink>
+                <NavLink to={"/category/kids_toys"} className={'headphone'} onClick={() => navigate("/")} > Kids Toys </NavLink>
+                <NavLink to={"/category/automotive_industrial"} className={'headphone'} onClick={() => navigate("/")} > Automotive/Industrial </NavLink>
+                <NavLink to={"/category/sports_outdoors"} className={'headphone'} onClick={() => navigate("/")} > Sports/Outdors </NavLink>
+                <NavLink to={"/category/beauty_health"} className={'headphone'} onClick={() => navigate("/")} > Beauty/Health </NavLink>
+                <NavLink to={"/category/movies_music_games"} className={'headphone'} onClick={() => navigate("/")} > Movies/Music/Games  </NavLink>
             </div>
 
 
