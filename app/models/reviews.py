@@ -12,8 +12,8 @@ class Review(db.Model):
     productId = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod("products.id")), nullable=False)
     reviewText = db.Column(db.Text, nullable=False)
     starRating = db.Column(db.Integer, nullable=False)
-    created_at = db.Column(db.DateTime, default=datetime.now)
-    updated_at = db.Column(db.DateTime, default=datetime.now, onupdate=datetime.now)
+    created_at = db.Column(db.DateTime, default=datetime.now())
+    updated_at = db.Column(db.DateTime, default=datetime.now(), onupdate=datetime.now())
 
     product = db.relationship("Product", back_populates="reviews")
     user = db.relationship("User", back_populates="reviews")

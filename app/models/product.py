@@ -1,5 +1,5 @@
 from .db import db, environment, SCHEMA, add_prefix_for_prod 
-import datetime
+from datetime import datetime
 
 class Product(db.Model):
     __tablename__ = "products"
@@ -14,8 +14,8 @@ class Product(db.Model):
     category = db.Column(db.String, nullable=False)
     image = db.Column(db.String(255))
     return_policy = db.Column(db.Text)
-    created_at = db.Column(db.DateTime, default=datetime.now)
-    updated_at = db.Column(db.DateTime, default=datetime.now, onupdate=datetime.now)
+    created_at = db.Column(db.DateTime, default=datetime.now())
+    updated_at = db.Column(db.DateTime, default=datetime.now(), onupdate=datetime.now())
 
     owner_id = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod('users.id')), nullable=False)
     owner = db.relationship('User', back_populates='products')
