@@ -11,7 +11,7 @@ class Product(db.Model):
     name = db.Column(db.String(255), nullable=False)
     price = db.Column(db.Numeric(4,2), nullable=False)
     description = db.Column(db.Text)
-    category = db.Column(db.String, nullable=False)
+    category = db.Column(db.String, nullable=True)
     image = db.Column(db.String(255))
     return_policy = db.Column(db.Text)
     created_at = db.Column(db.DateTime, default=datetime.now())

@@ -16,7 +16,7 @@ const UpdateProduct = ({ product }) => {
     const [price, setPrice] = useState(product.price)
     const [description, setDescription] = useState(product.description)
     const [returnPolicy, setReturnPolicy] = useState(product.return_policy)
-    const [category, setCategory] = useState(product.category)
+    // const [category, setCategory] = useState(product.category)
     const [errors, setErrors] = useState([])
     const [image, setImage] = useState("")
 
@@ -26,20 +26,20 @@ const UpdateProduct = ({ product }) => {
     const handleSubmit = async (e) => {
         e.preventDefault()
 
-        if (category === '') {
-            setErrors(['Please select a category'])
-        }
+        // if (category === '') {
+        //     setErrors(['Please select a category'])
+        // }
 
-        if ((productName && price && description && returnPolicy && category) || image) {
+        if ((productName && price && description && returnPolicy) || image) {
 
             const formData = new FormData()
 
             if (image) formData.append("image", image)
-            console.log(productName, price, description, returnPolicy, category)
+            console.log(productName, price, description, returnPolicy)
             formData.append('name', productName)
             formData.append('price', parseFloat(price))
             formData.append("description", description)
-            formData.append("category", category)
+            // formData.append("category", category)
             formData.append("return_policy", returnPolicy)
             console.log(formData)
             try {
@@ -64,7 +64,7 @@ const UpdateProduct = ({ product }) => {
             <h1 className="header-text" >Update Product</h1>
             <form onSubmit={handleSubmit} className='prodform'>
                 <label>
-                    <div className="category-txt" >Category</div>
+                    {/* <div className="category-txt" >Category</div>
                     <div>
                         <select
                             className='inputdrop'
@@ -79,7 +79,7 @@ const UpdateProduct = ({ product }) => {
                             ))}
                         </select>
                     </div>
-                    <br />
+                    <br /> */}
                     <div className="update-input-container" >
                         <div className="category-txt" >Product Name</div>
                         <input

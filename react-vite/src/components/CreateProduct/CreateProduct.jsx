@@ -15,7 +15,7 @@ const CreateProduct = () => {
     const [price, setPrice] = useState("")
     const [description, setDescription] = useState("")
     const [returnPolicy, setReturnPolicy] = useState("")
-    const [category, setCategory] = useState("")
+    // const [category, setCategory] = useState("")
     const [errors, setErrors] = useState([])
     const [image, setImage] = useState("")
 
@@ -24,11 +24,11 @@ const CreateProduct = () => {
     const handleSubmit = async (e) => {
         e.preventDefault()
 
-        if (category === '') {
-            setErrors(['Please select a category'])
-        }
+        // if (category === '') {
+        //     setErrors(['Please select a category'])
+        // }
 
-        if ((productName && price && description && returnPolicy && category) || image) {
+        if ((productName && price && description && returnPolicy) || image) {
 
             const formData = new FormData()
 
@@ -37,7 +37,7 @@ const CreateProduct = () => {
             formData.append('name', productName)
             formData.append('price', parseFloat(price))
             formData.append("description", description)
-            formData.append("category", category)
+            // formData.append("category", category)
             formData.append("return_policy", returnPolicy)
             console.log(formData)
             try {
@@ -59,7 +59,7 @@ const CreateProduct = () => {
             <h1 className="header-text" >Create Product</h1>
             <form onSubmit={handleSubmit} className='prodform'>
                 <label>
-                    <div className="category-txt" >Category</div>
+                    {/* <div className="category-txt" >Category</div>
                     <div>
                         <select
                             className='inputdrop'
@@ -73,8 +73,8 @@ const CreateProduct = () => {
                                 </option>
                             ))}
                         </select>
-                    </div>
-                    <br />
+                    </div> */}
+                    {/* <br /> */}
                     <div className="update-input-container" >
                         <div className="category-txt" >Product Name</div>
                         <input
