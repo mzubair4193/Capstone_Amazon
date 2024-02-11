@@ -1,0 +1,19 @@
+.profile-dropdown {
+    background-color: white;
+    padding: 10px;
+    padding-left: 20px;
+    padding-right: 25px;
+}
+
+.fas .fa-use-circle {
+    padding-right: 30px;
+
+}
+
+.fa-user-tie {
+    padding: 10px 10px 10px 10px;
+}
+
+.fa-user-tie:hover {
+    cursor: pointer;
+}

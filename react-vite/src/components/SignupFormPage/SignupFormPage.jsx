@@ -42,6 +42,7 @@ function SignupFormPage() {
 
   return (
     <>
+      
       <h1>Sign Up</h1>
       {errors.server && <p>{errors.server}</p>}
       <form onSubmit={handleSubmit}>

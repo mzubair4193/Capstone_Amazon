@@ -8,6 +8,7 @@ import { useParams } from "react-router-dom";
 import { thunkPostReview } from "../../redux/review";
 import { thunkLoadProductReviews } from "../../redux/review";
 import './CreateReview.css'
+import logo from "../../../public/logo-black.png"
 
 const CreateReviewModal = () => {
     const dispatch = useDispatch()
@@ -32,6 +33,7 @@ const CreateReviewModal = () => {
     const renderStars = (value, setStarState) => {
         return (
             <div className="ratings">
+                <img src={logo} className="login-business-logo" onClick={() => navigate("/")} />
                 <label>
                     {[...Array(5)].map((star, index) => {
                         index += 1;
@@ -61,10 +63,12 @@ const CreateReviewModal = () => {
                 <textarea
                     value={review}
                     onChange={(e) => setReview(e.target.value)}
+                    
                     placeholder="Share your thoughts on this product"
                     className='reviewpost'
                     maxLength={255}
                 />
+                <br />
                 <button type='submit' disabled={review.length === 0} className='reviewsubmit'>Post Review</button>
             </form>
         </div>

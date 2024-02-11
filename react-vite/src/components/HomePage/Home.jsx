@@ -19,7 +19,7 @@ const HomePage = () => {
     return (
         <>
             <div className="nav-links-container" >
-                <NavLink to={"/category/headphones"} > Headphones </NavLink>
+                <NavLink to={"/category/headphones"} className={'headphone'} > Headphones </NavLink>
                 <NavLink to={"/category/laptops"}> Laptops </NavLink>
                 <NavLink to={"/category/tv_video"}> TV/Video </NavLink>
                 <NavLink to={"/category/pet_supplies"}> Pet Supplies </NavLink>
@@ -38,11 +38,11 @@ const HomePage = () => {
                             <NavLink to={`/products/${product.id}`} >
 
                                 <div className='producthead'>
-                                    {product.category}{product.createdAt}
+                                    {product.createdAt}
                                 </div>
                                 <div className='imgHolder'><img className="img" src="https://placehold.co/600x400"></img></div>
                                 <div className='prodname'>{product.name}</div>
-                                <div className='bottomcont'>{product.price}</div>
+                                <div className='bottomcont'>${product.price}</div>
                             </NavLink>
                             <div className='productbuttons'>
                                 {user && user.id === product.owner_id && (

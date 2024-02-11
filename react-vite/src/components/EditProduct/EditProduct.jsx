@@ -2,6 +2,8 @@ import { useState } from "react"
 import { useDispatch } from "react-redux"
 import { thunkUpdateProduct, thunkGetAllProducts } from "../../redux/product"
 import { useModal } from "../../context/Modal"
+import logo from "../../../public/logo-black.png"
+import "./EditProduct.css"
 
 const UpdateProduct = ({ product }) => {
     const dispatch = useDispatch()
@@ -31,45 +33,65 @@ const UpdateProduct = ({ product }) => {
     }
 
     return (
+        
         <div className="createmodal">
-            <h1>Create A Product</h1>
+             <img src={logo} className="login-business-logo" onClick={() => navigate("/")} />
+            <h1 className="header-text" >Update Product</h1>
             <form onSubmit={handleSubmit} className='prodform'>
                 <label>
+                    <div className="category-txt" >Category</div>
+                    <div>
                     <select
                         className='inputdrop'
                         onChange={(e) => setCategory(e.target.value)}
                         value={category}>
                         <option value=''>Select A Category</option>
+
                         {categories.map((category) => (
                             <option key={category}>
                                 {category}
                             </option>
                         ))}
                     </select>
+                    </div>
+                    <br />
+                    <div className="update-input-container" >
+                    <div className="category-txt" >Product Name</div>
                     <input
+                    className="input-area"
                         type="text"
                         placeholder="Product Name"
                         value={productName}
                         onChange={(e) => setProductName(e.target.value)}
                     />
+                    <div className="category-txt" >Product Description</div>
+                   
                     <input
+                    className="input-area"
                         type="text"
                         placeholder="Description"
                         value={description}
                         onChange={(e) => setDescription(e.target.value)}
                     />
+                     <div className="category-txt" >Price</div>
+                    
                     <input
+                    className="input-area"
                         type="text"
                         placeholder="Price"
                         value={price}
                         onChange={(e) => setPrice(e.target.value)}
                     />
+                <div className="category-txt" >Return Policy</div>
+
                     <input
+                    className="input-area"
                         type="text"
                         placeholder="Return Policy"
                         value={returnPolicy}
                         onChange={(e) => setReturnPolicy(e.target.value)}
                     />
+            </div>
                 </label>
                 <button type='submit' className="submitProd" disabled={productName.length === 0 || description.length === 0 || price === 0 || returnPolicy.length === 0}>Submit</button>
             </form>

@@ -3,7 +3,6 @@
     border: none;
     background-color: transparent;
     cursor: pointer;
-
 }
 
 .star-off {
@@ -11,5 +10,43 @@
     border: none;
     background-color: transparent;
     cursor: pointer;
+}
 
+.createrevmodal {
+    height: 600px;
+    width: 500px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.login-business-logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.fa-star {
+    margin-bottom: 30px;
+}
+
+.ratings {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.reviewsubmit {
+    margin-top: 10px;
+    width: 100%;
+    margin-top: 10px;
+    background-color: #F7CA00;
+    border: none;
+    padding: 5px 20px 5px 20px;
+    border-radius: 15px;
+    font-size: smaller;
+    font-weight: bold;
+    color: black;
 }

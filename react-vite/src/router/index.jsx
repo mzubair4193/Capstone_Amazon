@@ -1,6 +1,6 @@
 import { createBrowserRouter } from 'react-router-dom';
 import LoginFormPage from '../components/LoginFormPage';
-import SignupFormPage from '../components/SignupFormPage';
+import SignupFormModal from '../components/SignupFormModal';
 import Layout from './Layout';
 import HomePage from '../components/HomePage/Home';
 // import ProductsByCategory from '../components/ProductsPage/Category'; // Import the component
@@ -22,7 +22,7 @@ export const router = createBrowserRouter([
       },
       {
         path: "signup",
-        element: <SignupFormPage />,
+        element: <SignupFormModal />,
       },
       {
         path: "/products/:id",

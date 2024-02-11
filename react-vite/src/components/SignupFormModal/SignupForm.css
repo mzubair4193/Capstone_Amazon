@@ -1,0 +1,28 @@
+.signup-modal {
+    width: 310px;
+    height: 576px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-right: 10px;
+}
+
+.inputcont {
+    font-weight: bolder;
+    font-size: small;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    font-family: sans-serif;
+}
+
+.signup-button1 {
+    width: 177px;  
+    background-color: #F7CA00;
+    border: none;
+    padding: 5px 20px 5px 20px;
+    border-radius: 15px;
+    font-size: smaller;   
+    color: black;
+    font-weight: bold;
+}

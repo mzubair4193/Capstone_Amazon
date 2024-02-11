@@ -1,0 +1,58 @@
+.createmodal {
+    height: 650px;
+    width: 500px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.update-input-container {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: max-content;
+    /* margin-bottom: 3px; */
+}
+
+.header-text {
+    font-family: sans-serif;
+}
+
+.category-txt {
+    font-family: sans-serif;
+    font-size: small;
+    font-weight: bold;
+    margin-left: 5px;
+    display: flex;
+    justify-content: center;
+
+}
+
+.inputdrop {
+    margin-left: 5px;
+    width: 162px;
+    /* width: 100%; */
+    /* padding-left: 5px; */
+}
+
+.submitProd {
+    width: 100%;
+    margin-top: 10px;
+    background-color: #F7CA00;
+    border: none;
+    padding: 5px 20px 5px 20px;
+    border-radius: 15px;
+    font-size: smaller;
+    font-weight: bold;
+    color: black;
+}
+
+.input-area:focus {
+    text-decoration: none;
+    background-color: rgb(155, 216, 248);
+}
+
+.submitProd:hover {
+    cursor: pointer;
+}

@@ -1,3 +1,7 @@
+body {
+    margin: 0;
+}
+
 .productcont {
     border: 1px solid black;
     width: 300px;
@@ -9,6 +13,8 @@
 .maincont {
     display: flex;
     flex-wrap: wrap;
+    justify-content: space-around;
+    gap: 20px;
 }
 
 .img {
@@ -20,11 +26,19 @@
 .nav-links-container {
     display: flex;
     justify-content: space-between;
+    flex-wrap: wrap;
     border: 1px solid grey;
     margin-bottom: 10px;
     padding-bottom: 10px;
     padding-top: 10px;
-    /* background-color: #232F3E;
-    text-decoration: none;
+     background-color: #232F3E; 
+    /*text-decoration: none;
     color; */
+}
+
+.bottomcont {
+    float: right;
+    padding-right: 8px;
+    display: flex;
+    /* justify-content: flex-end; */
 }

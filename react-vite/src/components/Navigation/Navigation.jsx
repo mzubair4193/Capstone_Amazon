@@ -1,6 +1,7 @@
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import ProfileButton from "./ProfileButton";
 import "./Navigation.css";
+import logo from "../../../public/logo-color.png"
 import OpenModalButton from "../OpenModalButton/OpenModalButton";
 import CreateProduct from "../CreateProduct/CreateProduct";
 import { useSelector } from "react-redux";
@@ -8,12 +9,11 @@ import { useState } from "react";
 
 function Navigation() {
   const user = useSelector((state) => state.session.user)
+  const navigate = useNavigate()
   const [value,setValue] = useState()
   return (
     <ul className="navigation-container" >
-      <div>
-        <NavLink to="/">Home</NavLink>
-      </div>
+        <img src={logo} className="business-logo" onClick={() => navigate("/")} />
       <div className='nav-search-main-cont'>
       <input
 
@@ -26,12 +26,13 @@ function Navigation() {
 
 
       </div>
-
+      <div className="create-prod-btn">
     { user && <OpenModalButton 
+      
         buttonText={"Create A Product"}
         modalComponent={<CreateProduct />}
        />}
-
+    </div>
       <div>
         <ProfileButton />
       </div>

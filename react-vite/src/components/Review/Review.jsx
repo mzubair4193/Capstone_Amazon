@@ -7,6 +7,8 @@ import OpenModalButton from "../OpenModalButton/OpenModalButton";
 import CreateReviewModal from "./CreateReviewModal";
 import UpdateReviewModal from "./UpdateReviewModal";
 import DeleteReviewModal from "./DeleteReview";
+import logo from "../../../public/logo-black.png"
+import "./Review.css"
 
 function ReviewSection() {
     const dispatch = useDispatch();
@@ -46,6 +48,7 @@ function ReviewSection() {
 
     return (
         <div className='reviewBox'>
+            
             {user && hasReviewed === false && <OpenModalButton
                 buttonText={"Create a Review"}
                 className="createreviewbutton"

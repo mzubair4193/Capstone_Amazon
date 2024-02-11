@@ -1,17 +1,23 @@
 import { useState } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useModal } from "../../context/Modal";
 import { thunkSignup } from "../../redux/session";
+import { Navigate, useNavigate } from "react-router-dom";
+import logo from "../../../public/logo-black.png"
 import "./SignupForm.css";
 
 function SignupFormModal() {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const sessionUser = useSelector((state) => state.session.user);
   const [email, setEmail] = useState("");
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [errors, setErrors] = useState({});
   const { closeModal } = useModal();
+
+  if (sessionUser) return <Navigate to="/" replace={true} />;
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -35,57 +41,92 @@ function SignupFormModal() {
       setErrors(serverResponse);
     } else {
       closeModal();
+      navigate("/");
     }
   };
 
   return (
-    <>
-      <h1>Sign Up</h1>
-      {errors.server && <p>{errors.server}</p>}
-      <form onSubmit={handleSubmit}>
+    <div className="signup-modal">
+       <img src={logo} className="login-business-logo" onClick={() => navigate("/")} />
+      <h1 className="login-header">Sign Up</h1>
+      {errors.server && <span>{errors.server}</span>}
+      <form onSubmit={handleSubmit} className='signup-form'>
         <label>
-          Email
-          <input
-            type="text"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            required
-          />
+
+          <div className="inputcont">
+            Email
+            <br />
+            <input
+
+              type="text"
+              value={email}
+              maxLength={20}
+              placeholder={"Email"}
+              onChange={(e) => setEmail(e.target.value)}
+              required
+              className="email-input"
+            />
+          </div>
         </label>
-        {errors.email && <p>{errors.email}</p>}
+        {errors.email && <span className="error">{errors.email}</span>}
+
+        {email.length === 20 && <p className=" warning2" > Max Length: 20 characters </p>}
         <label>
+          <div className="inputcont">
           Username
-          <input
-            type="text"
-            value={username}
-            onChange={(e) => setUsername(e.target.value)}
-            required
-          />
+            <br />
+            <input
+              type="text"
+              placeholder="Username"
+              value={username}
+              maxLength={15}
+              onChange={(e) => setUsername(e.target.value)}
+              required
+              className="username-input"
+            />
+          </div>
         </label>
-        {errors.username && <p>{errors.username}</p>}
+
+        {errors.username && <span className="error1">{errors.username}</span>}
+        {username.length === 15 && <p className="warning3" > Max Length: 15 characters </p>}
         <label>
+          <div className="inputcont">
           Password
-          <input
-            type="password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            required
-          />
+            <br />
+            <input
+              type="password"
+              value={password}
+              maxLength={15}
+              placeholder="Password"
+              onChange={(e) => setPassword(e.target.value)}
+              required
+              className="password-input"
+            />
+          </div>
         </label>
-        {errors.password && <p>{errors.password}</p>}
+        {errors.password && <span className="errors">{errors.password}</span>}
+        {password.length === 15 && <p className=" warning" > Max Length: 15 characters </p>}
+        {password.length < 8 && password.length !== 0 && <p className=" warning" > Min Length: 8 characters </p>}
         <label>
+          <div className="inputcont">
           Confirm Password
-          <input
-            type="password"
-            value={confirmPassword}
-            onChange={(e) => setConfirmPassword(e.target.value)}
-            required
-          />
+            <br />
+            <input
+              type="password"
+              placeholder="Confirm Password"
+              value={confirmPassword}
+              maxLength={15}
+              onChange={(e) => setConfirmPassword(e.target.value)}
+              required
+              className="confirmPassword-input"
+            />
+          </div>
         </label>
-        {errors.confirmPassword && <p>{errors.confirmPassword}</p>}
-        <button type="submit">Sign Up</button>
-      </form>
-    </>
+        {errors.confirmPassword && <span className="errormatch">Passwords must match</span>}
+        {confirmPassword.length === 15 && <p className="warning4" > Max Length: 15 characters </p>}
+        <button type="submit" className='signup-button1' disabled={email.length === 0 || username.length === 0 || password.length < 8 || confirmPassword.length < 8}>Sign Up</button>
+      </form >
+    </div >
   );
 }
 

@@ -1,6 +1,8 @@
 import { useDispatch } from "react-redux"
 import { useModal } from "../../context/Modal"
 import { thunkDeleteProduct, thunkGetAllProducts } from "../../redux/product"
+import logo from "../../../public/logo-black.png"
+import "./DeleteProduct.css"
 
 
 const DeleteProduct = ({ product }) => {
@@ -16,10 +18,12 @@ const DeleteProduct = ({ product }) => {
     return (
         <>
             <div id='delete_product_container'>
+            <img src={logo} className="login-business-logo" onClick={() => navigate("/")} />
                 <h2 className='delprod'>Delete Product?</h2>
                 <div className='proddelconfirm'>Are you sure you want to delete this product?</div>
                 <div className='productbuttons'>
                     <button onClick={deleteProduct}>Delete</button>
+                    <br />
                     <button onClick={closeModal}>Cancel</button>
                 </div>
             </div>

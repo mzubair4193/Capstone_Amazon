@@ -1,0 +1,74 @@
+.login-modal-container {
+    width: 275px;
+    height: 296px;
+    /* border: 1px solid black; */
+    /* margin: none;
+    display: flex;
+    flex-direction: column; */
+}
+
+.login-form-container {
+    display: flex;
+    /* flex-wrap: wrap; */
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    font-family: sans-serif;
+    border: 1px solid gray;
+    ;
+}
+
+.login-business-logo {
+   width: 225px;
+   /* display: flex; */
+   align-content: center;
+   margin-left: 25px;
+}
+
+.login-header {
+    font-size: x-large;
+}
+
+.credential-label {
+    font-family: sans-serif;
+    font-weight: 900;
+}
+
+.login-input-area {
+    background-color: #E8F0FE;
+    border-radius: 9%;
+    border: 1px solid #949494;
+}
+
+.login-buttons-cont {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 20px;
+    margin-bottom: 25px;
+}
+
+.login-button {
+    background-color: #F7CA00;
+    border: none;
+    padding: 5px 20px 5px 20px;
+    border-radius: 15px;
+    font-size: smaller;
+}
+
+.demo-user {
+    border: none;
+    background-color: #030303;
+    color: white;
+    border-radius: 15px;
+    padding: 5px 20px 5px 20px;
+}
+
+.login-button:hover {
+    cursor: pointer;
+}
+
+.demo-user:hover {
+    cursor: pointer;
+}
