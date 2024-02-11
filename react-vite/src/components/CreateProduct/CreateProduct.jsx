@@ -33,7 +33,7 @@ const CreateProduct = () => {
             const formData = new FormData()
 
             if (image) formData.append("image", image)
-            console.log(productName, price, description, returnPolicy, category)
+            console.log(productName, price, description, returnPolicy)
             formData.append('name', productName)
             formData.append('price', parseFloat(price))
             formData.append("description", description)
