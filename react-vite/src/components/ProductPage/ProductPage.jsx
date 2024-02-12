@@ -22,11 +22,12 @@ const ProductPage = () => {
         fetchData()
     }, [dispatch, id])
     console.log(reviews)
+    console.log(product)
     if (!product) return null
     return (
         <>
             <div className="productpage">
-                <img className="productImg" src='https://placehold.co/600x400'></img>
+                <img className="productImg" src={ product.image || 'https://placehold.co/600x400'}></img>
                 <div className='prodname'>{product.name}</div>
                 <div className='bottomcont'>{product.price}</div>
             </div>
