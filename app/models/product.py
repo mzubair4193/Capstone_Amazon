@@ -9,7 +9,7 @@ class Product(db.Model):
 
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(255), nullable=False)
-    price = db.Column(db.Numeric(4,2), nullable=False)
+    price = db.Column(db.Numeric(7,2), nullable=False)
     description = db.Column(db.Text)
     category = db.Column(db.String, nullable=True)
     image = db.Column(db.String(255))
