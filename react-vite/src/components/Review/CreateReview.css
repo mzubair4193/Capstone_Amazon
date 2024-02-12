@@ -50,3 +50,38 @@
     font-weight: bold;
     color: black;
 }
+
+.uar {
+    display: flex;
+    justify-content: center;
+    align-self: center;
+}
+
+.updaterevmodal {
+    /* width: 100%; */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 10px;
+}
+
+.reviewsubmit:hover {
+    cursor: pointer;
+}
+
+.reverr {
+    color: #f70000;
+    position: absolute;
+    top: 410px;
+    font-size: 12px;
+    right: 230px
+}
+
+.reverr2 {
+    color: #f70800;
+    position: absolute;
+    top: 100px;
+    font-size: 12px;
+    right: 120px
+}

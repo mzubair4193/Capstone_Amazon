@@ -17,12 +17,67 @@
 }
 
 .signup-button1 {
-    width: 177px;  
+    width: 177px;
     background-color: #F7CA00;
     border: none;
     padding: 5px 20px 5px 20px;
     border-radius: 15px;
-    font-size: smaller;   
+    font-size: smaller;
     color: black;
     font-weight: bold;
+}
+
+.warning1 {
+    color: #F7CA00;
+    position: absolute;
+    font-size: 12px;
+    top: 337px;
+    right: 30px
+}
+
+.warning2 {
+    color: #F7CA00;
+    position: absolute;
+    font-size: 12px;
+    top: 383px;
+    right: 30px
+}
+
+.warning3 {
+    color: #F7CA00;
+    position: absolute;
+    font-size: 12px;
+    top: 428px;
+    right: 30px
+}
+
+.warning4 {
+    color: #F7CA00;
+    position: absolute;
+    font-size: 12px;
+    top: 475px;
+    right: 30px
+}
+
+.errore {
+    color: red;
+    position: absolute;
+    font-size: 12px;
+    top: 330px;
+    right: 75px
+}
+
+.erroru {
+    position: absolute;
+    font-size: 12px;
+    color: red;
+    top: 377px;
+    right: 55px
+}
+
+.errormatch {
+    position: absolute;
+    color: red;
+    top: 457px;
+    font-size: 12px;
 }

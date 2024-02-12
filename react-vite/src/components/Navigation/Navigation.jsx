@@ -31,10 +31,13 @@ function Navigation() {
           buttonText={"Create A Product"}
           modalComponent={
             <div className="create-product-modal">
-              <CreateProduct />
+              <CreateProduct className='create-prod-btn'/>
             </div>
+            
           }
+          className='create-prod-btn'
         />}
+        
       </div>
 
       <div>

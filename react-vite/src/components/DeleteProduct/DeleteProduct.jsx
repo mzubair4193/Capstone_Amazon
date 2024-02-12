@@ -22,9 +22,9 @@ const DeleteProduct = ({ product }) => {
                 <h2 className='delprod'>Delete Product?</h2>
                 <div className='proddelconfirm'>Are you sure you want to delete this product?</div>
                 <div className='productbuttons'>
-                    <button onClick={deleteProduct}>Delete</button>
+                    <button onClick={deleteProduct} className="delete-prod-btn" >Delete</button>
                     <br />
-                    <button onClick={closeModal}>Cancel</button>
+                    <button onClick={closeModal} className="delete-prod-btn2" >Cancel</button>
                 </div>
             </div>
         </>

@@ -20,10 +20,10 @@
 }
 
 .login-business-logo {
-   width: 225px;
-   /* display: flex; */
-   align-content: center;
-   margin-left: 25px;
+    width: 225px;
+    /* display: flex; */
+    align-content: center;
+    margin-left: 25px;
 }
 
 .login-header {
@@ -71,4 +71,21 @@
 
 .demo-user:hover {
     cursor: pointer;
+}
+
+.emailerr {
+    position: absolute;
+    color: red;
+    font-size: 12px;
+    top: 300px;
+    right: 30px
+}
+
+.errorspass {
+    position: absolute;
+    color: red;
+    font-size: 12px;
+    top: 365px;
+    right: 7px;
+
 }

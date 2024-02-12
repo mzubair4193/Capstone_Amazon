@@ -87,8 +87,10 @@ const UpdateProduct = ({ product }) => {
                             type="text"
                             placeholder="Product Name"
                             value={productName}
+                            maxLength={40}
                             onChange={(e) => setProductName(e.target.value)}
                         />
+                        {productName.length === 40 && <p className="e1">Max: 40</p>}
                         <div className="category-txt" >Product Description</div>
 
                         <input
@@ -96,8 +98,10 @@ const UpdateProduct = ({ product }) => {
                             type="text"
                             placeholder="Description"
                             value={description}
+                            maxLength={100}
                             onChange={(e) => setDescription(e.target.value)}
                         />
+                        {description.length === 100 && <p className="e2">Max: 100</p>}
                         <div className="category-txt" >Price</div>
 
                         <input
@@ -105,8 +109,10 @@ const UpdateProduct = ({ product }) => {
                             type="text"
                             placeholder="Price"
                             value={price}
+                            maxLength={7}
                             onChange={(e) => setPrice(e.target.value)}
                         />
+                        {price.length === 7 && <p className="e3">Max: 7 Digits</p>}
                         <div className="category-txt" >Return Policy</div>
 
                         <input
@@ -114,13 +120,15 @@ const UpdateProduct = ({ product }) => {
                             type="text"
                             placeholder="Return Policy"
                             value={returnPolicy}
+                            maxLength={50}
                             onChange={(e) => setReturnPolicy(e.target.value)}
                         />
+                        {returnPolicy.length === 50 && <p className="e4">Max: 50</p>}
+                        <label className='imageBox'>
+                            Image (optional):
+                            <input type='file' accept='image/*' onChange={(e) => setImage(e.target.files[0])} className='fileup' />
+                        </label>
                     </div>
-                    <label className='imageBox'>
-                        Image (optional):
-                        <input type='file' accept='image/*' onChange={(e) => setImage(e.target.files[0])} className='fileup' />
-                    </label>
                 </label>
                 <button type='submit' className="submitProd" disabled={productName.length === 0 || description.length === 0 || price === 0 || returnPolicy.length === 0}>Submit</button>
             </form>

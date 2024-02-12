@@ -6,6 +6,7 @@ import { thunkClearReviewsState, thunkLoadProductReviews } from "../../redux/rev
 // import OpenModalButton from "../OpenModalButton/OpenModalButton";
 // import ReviewModal from "../Review/Review"
 import ReviewSection from "../Review/Review"
+import "./ProductPage.css"
 
 const ProductPage = () => {
     const dispatch = useDispatch()
@@ -27,9 +28,14 @@ const ProductPage = () => {
         <>
             <div className="productpage">
                 <img className="productImg" src={product.image || 'https://placehold.co/600x400'}></img>
+                <div className="prodInfo-container" >
                 <div className='prodname'>{product.name}</div>
-                <div className="proddesc">{product.description}</div>
-                <div className='bottomcont'>{product.price}</div>
+                <h3 className="desc-header" >About this item</h3>
+                <div className="proddesc">
+             
+                {product.description}</div>
+                <div className='bottomcont'>${product.price}.00</div>
+            </div>
             </div>
             <ReviewSection />
         </>

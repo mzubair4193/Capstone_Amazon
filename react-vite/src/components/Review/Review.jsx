@@ -51,7 +51,7 @@ function ReviewSection() {
             
             {user && hasReviewed === false && <OpenModalButton
                 buttonText={"Create a Review"}
-                className="createreviewbutton"
+                className="delete-rev2"
                 modalComponent={<CreateReviewModal />}
             />}
             <div className="review-container">
@@ -85,7 +85,7 @@ function ReviewSection() {
                                 }
                                 {user && review.userId === user.id && <OpenModalButton
                                     buttonText={"Delete Review"}
-                                    className='deletereviewbutton'
+                                    className="delete-rev"
                                     modalComponent={<DeleteReviewModal reviewId={review.id} />}
                                 />
                                 }

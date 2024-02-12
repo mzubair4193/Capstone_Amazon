@@ -6,3 +6,36 @@
     justify-content: center;
     align-items: center;
 } */
+
+
+.e1 {
+    color: #F7CA00;
+    position: absolute;
+    font-size: 12px;
+    top: 355px;
+    right: 20px
+}
+
+.e2 {
+    color: #F7CA00;
+    position: absolute;
+    font-size: 12px;
+    top: 410px;
+    right: 15px
+}
+
+.e3 {
+    color: #F7CA00;
+    position: absolute;
+    font-size: 12px;
+    top: 465px;
+    right: 1px
+}
+
+.e4 {
+    color: #F7CA00;
+    position: absolute;
+    font-size: 12px;
+    top: 520px;
+    right: 20px
+}

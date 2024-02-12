@@ -1,4 +1,91 @@
 .reviewBox {
     height: 500px;
     width: 400px;
+    margin: 10px;
+}
+.star-on {
+    color: yellow;
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+}
+
+.star-off {
+    color: lightgrey;
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+}
+
+.createrevmodal {
+    height: 600px;
+    width: 500px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.login-business-logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.fa-star {
+    margin-bottom: 30px;
+}
+
+.ratings {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.reviewsubmit {
+    margin-top: 10px;
+    width: 100%;
+    margin-top: 10px;
+    background-color: #F7CA00;
+    border: none;
+    padding: 5px 20px 5px 20px;
+    border-radius: 15px;
+    font-size: smaller;
+    font-weight: bold;
+    color: black;
+}
+
+.reverr {
+    color: #F7CA00;
+    position: absolute;
+    top: 410px;
+    font-size: 12px;
+    right: 230px
+}
+
+.reverr2 {
+    color: #F7CA00;
+    position: absolute;
+    top: 100px;
+    font-size: 12px;
+    right: 120px
+}
+
+.reviewHeader {
+    word-break: break-all;
+    margin-left: 20px;
+    background: rgba(250, 250, 250, .9) !important;
+	border: none !important;
+}
+
+.reviewbuttons {
+    display: flex;
+    gap: 10px;
+    
+}
+
+.updatereviewbutton:hover{
+    cursor: pointer;
+
 }

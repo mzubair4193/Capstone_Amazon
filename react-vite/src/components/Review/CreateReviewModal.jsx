@@ -1,4 +1,4 @@
-// import { useEffect } from "react"
+import { useEffect } from "react"
 import {
     useDispatch
 } from "react-redux";
@@ -63,13 +63,17 @@ const CreateReviewModal = () => {
                 <textarea
                     value={review}
                     onChange={(e) => setReview(e.target.value)}
-                    
+                    rows={10}
+                    cols={30}
                     placeholder="Share your thoughts on this product"
                     className='reviewpost'
-                    maxLength={255}
+                    maxLength={150}
                 />
+                {review.length === 150 && <p className="reverr">Max: 150</p>}
                 <br />
-                <button type='submit' disabled={review.length === 0} className='reviewsubmit'>Post Review</button>
+                <button type='submit'
+                 disabled={review.length === 0} className='reviewsubmit'>
+                Post Review</button>
             </form>
         </div>
     )

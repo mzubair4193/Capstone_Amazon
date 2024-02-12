@@ -1,0 +1,30 @@
+.deletereviewmodal {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 20px;
+    margin: 10px;
+}
+
+.deletemodalbuttons {
+    display: flex;
+    gap: 20px;
+    border: none;
+}
+
+.delete-rev {
+    border: none;
+    background-color: red;
+    padding: 10px;
+    border-radius: 10px;
+    font-weight: bolder;
+}
+
+.delete-rev:hover {
+    cursor: pointer;
+}
+
+.delete-rev2:hover {
+    cursor: pointer;
+}

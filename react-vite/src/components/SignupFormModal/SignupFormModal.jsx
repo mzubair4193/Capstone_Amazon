@@ -47,7 +47,7 @@ function SignupFormModal() {
 
   return (
     <div className="signup-modal">
-       <img src={logo} className="login-business-logo" onClick={() => navigate("/")} />
+      <img src={logo} className="login-business-logo" onClick={() => navigate("/")} />
       <h1 className="login-header">Sign Up</h1>
       {errors.server && <span>{errors.server}</span>}
       <form onSubmit={handleSubmit} className='signup-form'>
@@ -68,12 +68,12 @@ function SignupFormModal() {
             />
           </div>
         </label>
-        {errors.email && <span className="error">{errors.email}</span>}
+        {errors.email && <span className="errore">{errors.email}</span>}
 
-        {email.length === 20 && <p className=" warning2" > Max Length: 20 characters </p>}
+        {email.length === 20 && <p className=" warning1" > Max: 20</p>}
         <label>
           <div className="inputcont">
-          Username
+            Username
             <br />
             <input
               type="text"
@@ -87,11 +87,11 @@ function SignupFormModal() {
           </div>
         </label>
 
-        {errors.username && <span className="error1">{errors.username}</span>}
-        {username.length === 15 && <p className="warning3" > Max Length: 15 characters </p>}
+        {errors.username && <span className="erroru">{errors.username}</span>}
+        {username.length === 15 && <p className="warning2" > Max: 15</p>}
         <label>
           <div className="inputcont">
-          Password
+            Password
             <br />
             <input
               type="password"
@@ -105,11 +105,11 @@ function SignupFormModal() {
           </div>
         </label>
         {errors.password && <span className="errors">{errors.password}</span>}
-        {password.length === 15 && <p className=" warning" > Max Length: 15 characters </p>}
-        {password.length < 8 && password.length !== 0 && <p className=" warning" > Min Length: 8 characters </p>}
+        {password.length === 15 && <p className=" warning3" > Max: 15</p>}
+        {password.length < 8 && password.length !== 0 && <p className=" warning3" > Min: 8</p>}
         <label>
           <div className="inputcont">
-          Confirm Password
+            Confirm Password
             <br />
             <input
               type="password"
@@ -122,8 +122,9 @@ function SignupFormModal() {
             />
           </div>
         </label>
+        {confirmPassword.length < 8 && confirmPassword.length !== 0 && <p className=" warning4" > Min: 8</p>}
         {errors.confirmPassword && <span className="errormatch">Passwords must match</span>}
-        {confirmPassword.length === 15 && <p className="warning4" > Max Length: 15 characters </p>}
+        {confirmPassword.length === 15 && <p className="warning4" > Max: 15</p>}
         <button type="submit" className='signup-button1' disabled={email.length === 0 || username.length === 0 || password.length < 8 || confirmPassword.length < 8}>Sign Up</button>
       </form >
     </div >

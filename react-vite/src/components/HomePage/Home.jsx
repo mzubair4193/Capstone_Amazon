@@ -19,15 +19,15 @@ const HomePage = () => {
     return (
         <>
             <div className="nav-links-container" >
-                <NavLink to={"/category/headphones"} className={'headphone'} > Headphones </NavLink>
-                <NavLink to={"/category/laptops"}> Laptops </NavLink>
-                <NavLink to={"/category/tv_video"}> TV/Video </NavLink>
-                <NavLink to={"/category/pet_supplies"}> Pet Supplies </NavLink>
-                <NavLink to={"/category/kids_toys"}> Kids Toys </NavLink>
-                <NavLink to={"/category/automotive_industrial"}> Automotive/Industrial </NavLink>
-                <NavLink to={"/category/sports_outdoors"}> Sports/Outdors </NavLink>
-                <NavLink to={"/category/beauty_health"}> Beauty/Health </NavLink>
-                <NavLink to={"/category/movies_music_games"}> Movies/Music/Games  </NavLink>
+                <NavLink to={"/"} className={'headphone'} > Headphones </NavLink>
+                <NavLink to={"/"} className={'headphone'}> Laptops </NavLink>
+                <NavLink to={"/"} className={'headphone'}> TV/Video </NavLink>
+                <NavLink to={"/"} className={'headphone'}> Pet Supplies </NavLink>
+                <NavLink to={"/"} className={'headphone'}> Kids Toys </NavLink>
+                <NavLink to={"/"} className={'headphone'}> Automotive/Industrial </NavLink>
+                <NavLink to={"/"} className={'headphone'}> Sports/Outdors </NavLink>
+                <NavLink to={"/"} className={'headphone'}> Beauty/Health </NavLink>
+                <NavLink to={"/"} className={'headphone'}> Movies/Music/Games  </NavLink>
             </div>
 
 
@@ -41,16 +41,18 @@ const HomePage = () => {
                                     {product.createdAt}
                                 </div>
                                 <div className='imgHolder'><img className="img" src={product.image || "https://placehold.co/600x400"}></img></div>
-                                <div className='prodname'>{product.name}</div>
-                                <div className='bottomcont'>${product.price}</div>
+                                <div className='prodname-home'>{product.name}</div>
+                                <div className='bottomcont-home'>${product.price}.00</div>
                             </NavLink>
                             <div className='productbuttons'>
+                                <div className="home-buttons" >
                                 {user && user.id === product.owner_id && (
-                                    <OpenModalButton buttonText={"Update"} modalComponent={<UpdateProduct product={product} />} />
+                                    <OpenModalButton buttonText={"Update"} modalComponent={<UpdateProduct product={product} className={'update-prod-btn'} />} className={'update-prod-btn'} />
                                 )}
                                 {user && user.id === product.owner_id && (
                                     <OpenModalButton buttonText={"Delete"} modalComponent={<DeleteProduct product={product} />} />
                                 )}
+                                </div>
                             </div>
                         </div>
                     );

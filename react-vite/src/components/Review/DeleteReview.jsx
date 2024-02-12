@@ -2,6 +2,8 @@ import { useDispatch } from "react-redux"
 import { thunkDeleteReview, thunkLoadProductReviews } from "../../redux/review"
 import { useModal } from "../../context/Modal"
 import { useParams } from "react-router-dom"
+import logo from "../../../public/logo-black.png"
+import "./UpdateReview.css"
 
 const DeleteReviewModal = (reviewId) => {
     const dispatch = useDispatch()
@@ -18,11 +20,15 @@ const DeleteReviewModal = (reviewId) => {
 
     return (
         <div className='deletereviewmodal'>
+               <img src={logo} className="login-business-logo" onClick={() => navigate("/")} />
             <h1 className="deletereviewh1">Delete Your Review</h1>
             <h2 className='deletereviewh2'>Are you sure you want to delete this review?</h2>
             <div className="deletemodalbuttons">
-                <button onClick={handleSubmit}>Delete</button>
-                <button onClick={closeModal}>Cancel</button>
+                
+                <button className="delete-rev"  onClick={handleSubmit}>Delete</button>
+                <button className="delete-rev2"
+                  onClick={closeModal}  >
+                    Cancel</button>
             </div>
         </div>
     )
