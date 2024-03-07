@@ -57,11 +57,15 @@ def get_all_products_with_images():
 
 
 #get all products by category
-@product_routes.route('/category/<string:cate>')
-def get_products_by_category(cate):
+@product_routes.route('/category/<cat>')
+def get_products_by_category(cat):
+    print(cat)
+    if cat not in ['Headphones',  'Laptops', 'TV/Video', 'Pet Supplies', 'Kids Toys', 'Automotive/Industrial', 'Sports/Outdoors', 'Beauty/Health', 'Movies/Music/Games']:
 
+        return {"message": "Category does not exist"}, 404
+    
 
-    products = Product.query.filter(Product.category==cate).all()
+    products = Product.query.filter(Product.category==cat).all()
     if not products:
         return {"message": "That page does not exist"}, 404
     return {"products": [product.to_dict() for product in products]}
@@ -95,7 +99,7 @@ def create_product():
         newProduct = Product(
             name=data["name"],
             description=data["description"],
-            # category=data["category"],
+            category=data["category"],
             price=data["price"],
             return_policy=data["return_policy"],
             owner_id=current_user.id
@@ -135,7 +139,7 @@ def update_product(id):
         product.owner_id = current_user.id
         product.name = form.data["name"]
         product.description = form.data["description"]
-        # product.category= form.data["category"]
+        product.category= form.data["category"]
         product.price = form.data["price"]
         product.return_policy = form.data["return_policy"]
 

@@ -1,5 +1,7 @@
 body {
     margin: 0;
+    width: 100%;
+    
 }
 
 button:hover{
@@ -19,15 +21,16 @@ button:hover{
 }
 
 .maincont {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
-    gap: 20px;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 20px; /* Adjust gap between products */
+    max-width: 1024px; /* Limit container width */
+    margin: 0 auto; /* Center container horizontally */
 }
 
 .img {
-    width: 245px;
-    height: 250px;
+    width: 205px;
+    height: 200px;
     border-radius: 10px;
     margin: 5px 5px 5px 5px;
     
@@ -107,6 +110,8 @@ button:hover{
 .product-box {
     text-decoration: none;
     color: black;
+    border: 1px solid black;
+    padding-bottom: 3px;
     
 }
 .headphone {
@@ -125,3 +130,4 @@ button:hover{
 .home-buttons:hover {
     cursor: pointer;
 }
+

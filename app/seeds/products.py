@@ -170,7 +170,7 @@ def seed_products():
             price = f.random_number(digits=2),
             description=headphone_description1[i],
             image=headphone_image[i],
-            category= "headphones",
+            category= "Headphones",
             created_at=datetime.now(),
             owner_id=owner_id,
             return_policy=random.choice(['30 day return', 'Must be unopened and unused', 'No returns']))
@@ -179,7 +179,7 @@ def seed_products():
             price = f.random_number(digits=2),
             description=random.choice(laptop_descriptions1),
             image=laptop_image[i],
-            category="laptops",
+            category="Laptops",
             created_at=datetime.now(),
             owner_id=owner_id,
             return_policy=random.choice(['90 day return', 'Must be unopened and unused', 'No returns'])
@@ -190,7 +190,7 @@ def seed_products():
             price = f.random_number(digits=2),
             description=random.choice(tv_descriptions1),
             image=tv_video_images[i],
-            category="tv_video",
+            category="TV/Video",
             created_at=datetime.now(),
             owner_id=owner_id,
             return_policy=random.choice(['90 day return', 'Must be unopened and unused', 'No returns'])
@@ -201,7 +201,7 @@ def seed_products():
             price = f.random_number(digits=2),
             description=random.choice(pet_supplies_desc1),
             image=pet_supplies_images[i],
-            category="pet_supplies",
+            category="Pet Supplies",
             created_at=datetime.now(),
             owner_id=owner_id,
             return_policy=random.choice(['90 day return', 'Must be unopened and unused', 'No returns'])
@@ -212,7 +212,7 @@ def seed_products():
             price = f.random_number(digits=2),
             description=random.choice(kids_toys_desc1),
             image=kids_toys_images[i],
-            category="kids_toys",
+            category="Kids Toys",
             created_at=datetime.now(),
             owner_id=owner_id,
             return_policy=random.choice(['90 day return', 'Must be unopened and unused', 'No returns'])
@@ -223,7 +223,7 @@ def seed_products():
             price = f.random_number(digits=2),
             description=random.choice(automotive_industrial_desc1),
             image=auto_indus_images[i],
-            category="automotive_industrial",
+            category="Automotive/Industrial",
             created_at=datetime.now(),
             owner_id=owner_id,
             return_policy=random.choice(['90 day return', 'Must be unopened and unused', 'No returns'])
@@ -234,7 +234,7 @@ def seed_products():
             price = f.random_number(digits=2),
             description=random.choice(sports_outdoors_desc1),
             image=sports_outdoors_images[i],
-            category="sports_outdoors",
+            category="Sports/Outdoors",
             created_at=datetime.now(),
             owner_id=owner_id,
             return_policy=random.choice(['90 day return', 'Must be unopened and unused', 'No returns'])
@@ -245,7 +245,7 @@ def seed_products():
             price = f.random_number(digits=2),
             description=random.choice(beauty_health_desc1),
             image=beauty_health_images[i],
-            category="beauty_health",
+            category="Beauty/Health",
             created_at=datetime.now(),
             owner_id=owner_id,
             return_policy=random.choice(['90 day return', 'Must be unopened and unused', 'No returns'])
@@ -256,7 +256,7 @@ def seed_products():
             price = f.random_number(digits=2),
             description=random.choice(movies_music_games_desc1),
             image=movies_music_games_images[i],
-            category="movies_music_games",
+            category="Movies/Music/Games",
             created_at=datetime.now(),
             owner_id=owner_id,
             return_policy=random.choice(['90 day return', 'Must be unopened and unused', 'No returns'])
@@ -273,7 +273,8 @@ def seed_products():
         db.session.add(sports_outdoors)
         db.session.add(beauty_health)
         db.session.add(movies_music_games)
-        db.session.commit()
+    db.session.add_all(allProducts)
+    db.session.commit()
 
 
 def undo_products():

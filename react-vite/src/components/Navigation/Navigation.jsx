@@ -47,6 +47,10 @@ function Navigation() {
       setSearchResults([]);
     }
   };
+
+  const clearSearch = () => {
+    setSearchQuery('');
+  };
   
   useEffect(() => {
     handleSearch();
@@ -55,6 +59,19 @@ function Navigation() {
   return (
     <ul className="navigation-container" >
       <img src={logo} className="business-logo" onClick={() => navigate("/")} />
+      {/* <br /> */}
+      <div className="create-prod-btn">
+        { user && <OpenModalButton 
+          buttonText={"Create A Product"}
+          modalComponent={
+            <div className="create-product-modal">
+              <CreateProduct className='create-prod-btn'/>
+            </div>
+          }
+          className='create-prod-btn'
+          />}
+      </div>
+      <div>
       <div className='nav-search-main-cont'>
         <input
           className='search-bar'
@@ -67,7 +84,7 @@ function Navigation() {
           <div className="search-results-container">
             <ul className="search-results-list">
               {searchResults.map(result => (
-                <NavLink key={result.id} to={`/products/${result.id}`} className="search-result">
+                <NavLink key={result.id} to={`/products/${result.id}`} onClick={clearSearch} className="search-result">
                   <img src={result.image} className="result-img" alt={result.name} />
                   <div className="result-details">
                     <h2 className="itemname">{result.name}</h2>
@@ -80,21 +97,9 @@ function Navigation() {
           </div>
         )}
       </div>
-      <div className="create-prod-btn">
-        { user && <OpenModalButton 
-          buttonText={"Create A Product"}
-          modalComponent={
-            <div className="create-product-modal">
-              <CreateProduct className='create-prod-btn'/>
-            </div>
-          }
-          className='create-prod-btn'
-        />}
       </div>
-      <div>
         <ProfileButton />
-      </div>
-    </ul>
+          </ul>
   );
         }
 
