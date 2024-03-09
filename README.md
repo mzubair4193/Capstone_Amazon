@@ -1,4 +1,8 @@
-# Flask React Project
+# Amazonia Capstone
+
+
+<img src="https://github.com/mzubair4193/Capstone_Amazon/assets/134631086/6405c780-bbc6-4f2e-8d26-90c2df6944f7" width="600" height="450" />
+
 
 This is the starter for the Flask React project.
 
