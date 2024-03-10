@@ -7,7 +7,7 @@ from wtforms.validators import DataRequired, NumberRange, Length
 class ProductForm(FlaskForm):
     name = StringField("Product Name", validators=[DataRequired(), Length(max=50)])
     description = TextAreaField("Description", validators=[DataRequired(), Length(max=1000)])
-    category = SelectField("Category", validators=[DataRequired()], choices=['Headphones',  'Laptops', 'TV/Video', 'Pet Supplies', 'Kids Toys', 'Automotive/Industrial', 'Sports/Outdoors', 'Beauty/Health', 'Movies/Music/Games'])
+    category = SelectField("Category", validators=[DataRequired()], choices=['headphones','laptops','television','pets','children','automotive','athletics','beauty','entertainment'])
     image = FileField("Image",validators=[FileAllowed(list(ALLOWED_EXTENSIONS))])
     price = DecimalField("Price", validators=[DataRequired()])
     return_policy = StringField("Return Policy")

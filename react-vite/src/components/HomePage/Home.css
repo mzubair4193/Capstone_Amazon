@@ -122,12 +122,80 @@ button:hover{
     font-weight: bold;
 }
 
-.home-buttons {
-    display: flex;
-    gap: 30px;
+.home-buttons button {
+    width: 120px;
+   padding: 8px; 
+   /* display: flex; */
+   /* justify-content: center;
+   align-items: center; */
+   border: 1px solid grey;
+   margin-bottom: 10px;
+   padding-bottom: 10px;
+   padding-top: 10px;
+   background-color: #224f86;
+   text-decoration: none;
+   
+
 }
 
 .home-buttons:hover {
     cursor: pointer;
 }
 
+.update-prod-btn {
+    background-color: #28a745; /* Green color */
+    color: #fff; /* White text color */
+    padding: 8px 16px; /* Adjust padding */
+    border: none; /* Remove border */
+    border-radius: 5px; /* Add border radius */
+    cursor: pointer; /* Add cursor pointer */
+  }
+  
+  .update-prod-btn:hover {
+    background-color: #218838; /* Darker green color on hover */
+  }
+  
+  /* Delete Product button */
+  .delete-prod-btn {
+    background-color: #dc3545; /* Red color */
+    color: #fff; /* White text color */
+    padding: 8px 16px; /* Adjust padding */
+    border: none; /* Remove border */
+    border-radius: 5px; /* Add border radius */
+    cursor: pointer; /* Add cursor pointer */
+  }
+  
+  .delete-prod-btn:hover {
+    background-color: #c82333; /* Darker red color on hover */
+  }
+
+@media (min-width: 768px) and (max-width: 1024px) {
+    .column {
+      flex: 50%;
+      max-width: 100%;
+    }
+    .img {
+        width: 245px;
+        height: 200px;
+        border-radius: 10px;
+        margin: 5px;
+        margin-left: 5px;
+        
+    }
+  }
+  
+  /* Responsive layout - makes the two columns stack on top of each other instead of next to each other */
+  @media (min-width: 767px) and (max-width: 600px) {
+    .column {
+        flex: 50%;
+        max-width: 100%;
+      }
+      .img {
+        width: 320px !important;
+        height: 200px;
+        border-radius: 10px;
+        margin: 5px;
+        margin-left: 5px;
+        
+    }
+  }

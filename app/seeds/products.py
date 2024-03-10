@@ -43,7 +43,7 @@ laptop_image = [
     "https://techcrunch.com/wp-content/uploads/2021/10/CMC_0556.jpg", "http://tinyurl.com/4h5nyve9", "http://tinyurl.com/2682w3u2"
 ]
 
-tv_video1 = [
+television1  = [
 
     "Samsung QLED Q80A Series 4K UHD Smart TV",
     "LG OLED C1 Series 4K UHD Smart TV",
@@ -170,7 +170,7 @@ def seed_products():
             price = f.random_number(digits=2),
             description=headphone_description1[i],
             image=headphone_image[i],
-            category= "Headphones",
+            category= "headphones",
             created_at=datetime.now(),
             owner_id=owner_id,
             return_policy=random.choice(['30 day return', 'Must be unopened and unused', 'No returns']))
@@ -179,84 +179,84 @@ def seed_products():
             price = f.random_number(digits=2),
             description=random.choice(laptop_descriptions1),
             image=laptop_image[i],
-            category="Laptops",
+            category="laptops",
             created_at=datetime.now(),
             owner_id=owner_id,
             return_policy=random.choice(['90 day return', 'Must be unopened and unused', 'No returns'])
         )
 
-        tv_video = Product(
-            name=tv_video1[i],
+        television = Product(
+            name=television1[i],
             price = f.random_number(digits=2),
             description=random.choice(tv_descriptions1),
             image=tv_video_images[i],
-            category="TV/Video",
+            category="television",
             created_at=datetime.now(),
             owner_id=owner_id,
             return_policy=random.choice(['90 day return', 'Must be unopened and unused', 'No returns'])
         )
 
-        pet_supplies = Product(
+        pets = Product(
             name=pet_supplies1[i],
             price = f.random_number(digits=2),
             description=random.choice(pet_supplies_desc1),
             image=pet_supplies_images[i],
-            category="Pet Supplies",
+            category="pets",
             created_at=datetime.now(),
             owner_id=owner_id,
             return_policy=random.choice(['90 day return', 'Must be unopened and unused', 'No returns'])
         )
 
-        kids_toys = Product(
+        children = Product(
             name=kids_toys1[i],
             price = f.random_number(digits=2),
             description=random.choice(kids_toys_desc1),
             image=kids_toys_images[i],
-            category="Kids Toys",
+            category="children",
             created_at=datetime.now(),
             owner_id=owner_id,
             return_policy=random.choice(['90 day return', 'Must be unopened and unused', 'No returns'])
         )
 
-        automotive_industrial = Product(
+        automotive = Product(
             name=automotive_industrial1[i],
             price = f.random_number(digits=2),
             description=random.choice(automotive_industrial_desc1),
             image=auto_indus_images[i],
-            category="Automotive/Industrial",
+            category="automotive",
             created_at=datetime.now(),
             owner_id=owner_id,
             return_policy=random.choice(['90 day return', 'Must be unopened and unused', 'No returns'])
         )
 
-        sports_outdoors = Product(
+        athletics = Product(
             name=sports_outdoors1[i],
             price = f.random_number(digits=2),
             description=random.choice(sports_outdoors_desc1),
             image=sports_outdoors_images[i],
-            category="Sports/Outdoors",
+            category="athletics",
             created_at=datetime.now(),
             owner_id=owner_id,
             return_policy=random.choice(['90 day return', 'Must be unopened and unused', 'No returns'])
         )
 
-        beauty_health = Product(
+        beauty = Product(
             name=beauty_health1[i],
             price = f.random_number(digits=2),
             description=random.choice(beauty_health_desc1),
             image=beauty_health_images[i],
-            category="Beauty/Health",
+            category="beauty",
             created_at=datetime.now(),
             owner_id=owner_id,
             return_policy=random.choice(['90 day return', 'Must be unopened and unused', 'No returns'])
         )
 
-        movies_music_games = Product(
+        entertainment = Product(
             name=movies_music_games1[i],
             price = f.random_number(digits=2),
             description=random.choice(movies_music_games_desc1),
             image=movies_music_games_images[i],
-            category="Movies/Music/Games",
+            category="entertainment",
             created_at=datetime.now(),
             owner_id=owner_id,
             return_policy=random.choice(['90 day return', 'Must be unopened and unused', 'No returns'])
@@ -266,13 +266,13 @@ def seed_products():
 
         db.session.add(headphones)
         db.session.add(laptops)
-        db.session.add(tv_video)
-        db.session.add(pet_supplies)
-        db.session.add(kids_toys)
-        db.session.add(automotive_industrial)
-        db.session.add(sports_outdoors)
-        db.session.add(beauty_health)
-        db.session.add(movies_music_games)
+        db.session.add(television)
+        db.session.add(pets)
+        db.session.add(children)
+        db.session.add(automotive)
+        db.session.add(athletics)
+        db.session.add(beauty)
+        db.session.add(entertainment)
     db.session.add_all(allProducts)
     db.session.commit()
 

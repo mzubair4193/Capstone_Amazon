@@ -2,21 +2,29 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 10px 20px; /*Adjust padding as needed*/
-  max-width: 1024px; /* Limit width to 1024px */
-  margin: 0 auto; /* Center the navigation component */
+  padding: 10px 20px; 
+  max-width: 1024px; 
+  margin: 0 auto; 
   background-color: #000000;
-  /*text-decoration: none;
-  color; */
 }
 
 .business-logo {
-  width: 100px; /* Adjust logo size as needed */
+  width: 150px; 
   cursor: pointer;
 }
 
-.create-prod-btn {
-   /* Push the button to the right */
+.create-prod-btn button {
+  
+  background-color: #ffcc00; 
+  color: #fff;
+  padding: 10px 20px; 
+  border: none; 
+  border-radius: 5px; 
+  cursor: pointer; 
+}
+
+.create-prod-btn button:hover {
+  background-color: #0056b3; 
 }
 
 .nav-search-main-cont {
@@ -25,7 +33,7 @@
 
 .search-bar {
   padding: 8px;
-  width: 200px; /* Adjust search bar width as needed */
+  width: 230px; 
   border-radius: 5px;
   border: 1px solid #ccc;
   font-size: 14px;
@@ -34,8 +42,8 @@
 
 .search-results-container {
   position: absolute;
-  width: 215px; /* Adjust width as needed */
-  max-height: 300px; /* Adjust max height as needed */
+  width: 215px; 
+  max-height: 300px; 
   overflow-y: auto;
   border: 1px solid #ccc;
   background-color: #fff;
@@ -61,7 +69,7 @@
 }
 
 .result-img {
-  width: 40px; /* Adjust result image size as needed */
+  width: 40px; 
   height: 40px;
   object-fit: cover;
   border-radius: 50%;

@@ -19,19 +19,19 @@ const HomePage = () => {
     return (
         <>
             <div className="nav-links-container" >
-                <NavLink to={"/"} className={'headphone'} > Headphones </NavLink>
-                <NavLink to={"/"} className={'headphone'}> Laptops </NavLink>
-                <NavLink to={"/"} className={'headphone'}> TV/Video </NavLink>
-                <NavLink to={"/"} className={'headphone'}> Pet Supplies </NavLink>
-                <NavLink to={"/"} className={'headphone'}> Kids Toys </NavLink>
-                <NavLink to={"/"} className={'headphone'}> Automotive/Industrial </NavLink>
-                <NavLink to={"/"} className={'headphone'}> Sports/Outdors </NavLink>
-                <NavLink to={"/"} className={'headphone'}> Beauty/Health </NavLink>
-                <NavLink to={"/"} className={'headphone'}> Movies/Music/Games  </NavLink>
+                <NavLink to={"/category/headphones"} className={'headphone'} > Headphones </NavLink>
+                <NavLink to={"/category/laptops"} className={'headphone'}> Laptops </NavLink>
+                <NavLink to={"/category/television"} className={'headphone'}> TV/Video </NavLink>
+                <NavLink to={"/category/pets"} className={'headphone'}> Pet Supplies </NavLink>
+                <NavLink to={"/category/children"} className={'headphone'}> Kids Toys </NavLink>
+                <NavLink to={"/category/automotive"} className={'headphone'}> Automotive/Industrial </NavLink>
+                <NavLink to={"/category/athletics"} className={'headphone'}> Sports/Outdors </NavLink>
+                <NavLink to={"/category/beauty"} className={'headphone'}> Beauty/Health </NavLink>
+                <NavLink to={"/category/entertainment"} className={'headphone'}> Movies/Music/Games  </NavLink>
             </div>
 
 
-            <div className="maincont">
+            <div className="maincont column">
                 {products.map((product) => {
                     return (
                         <div className="productcont" key={product.id}>

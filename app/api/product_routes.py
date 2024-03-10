@@ -60,7 +60,8 @@ def get_all_products_with_images():
 @product_routes.route('/category/<cat>')
 def get_products_by_category(cat):
     print(cat)
-    if cat not in ['Headphones',  'Laptops', 'TV/Video', 'Pet Supplies', 'Kids Toys', 'Automotive/Industrial', 'Sports/Outdoors', 'Beauty/Health', 'Movies/Music/Games']:
+    if cat not in ['headphones','laptops','television','pets','children','automotive','athletics','beauty','entertainment']:
+
 
         return {"message": "Category does not exist"}, 404
     

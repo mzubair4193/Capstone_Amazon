@@ -61,6 +61,7 @@ function Navigation() {
       <img src={logo} className="business-logo" onClick={() => navigate("/")} />
       {/* <br /> */}
       <div className="create-prod-btn">
+      <div className="create-prod-btn">
         { user && <OpenModalButton 
           buttonText={"Create A Product"}
           modalComponent={
@@ -68,8 +69,9 @@ function Navigation() {
               <CreateProduct className='create-prod-btn'/>
             </div>
           }
-          className='create-prod-btn'
+  
           />}
+      </div>
       </div>
       <div>
       <div className='nav-search-main-cont'>
