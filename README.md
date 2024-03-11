@@ -4,7 +4,15 @@
 <img src="https://github.com/mzubair4193/Capstone_Amazon/assets/134631086/6405c780-bbc6-4f2e-8d26-90c2df6944f7" width="600" height="450" />
 
 
-This is the starter for the Flask React project.
+This is a clone for an e-commerce website much like Amazon. You will find that I have used Python to build the backend and React to build out the components in the front-end.
+It is an ongoing work in progress so please be patient, as it may not have all the feature that the actual website has.
+You will find that you are currently able to preform full C.R.U.D with the "Review" & "Product" feature!
+Please network with me on LinkedIn if you would like to talk about this project or anything else!
+
+www.linkedin.com/in/muhammad-zubair-60024927a
+
+
+
 
 ## Getting started
 
