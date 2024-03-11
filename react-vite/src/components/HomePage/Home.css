@@ -199,3 +199,31 @@ button:hover{
         
     }
   }
+
+  .foot-link-cont {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+    cursor: pointer;
+    font-size: 13px;
+    width: 100%;
+    margin-top: 20px;
+    background-color: #050505;
+    padding: 50px;
+  }
+  
+  .foot-link-cont a {
+    /* color: rgb(255, 255, 255, 0.7); */
+    font-size: 25px;
+  }
+  .foot-a-cont {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+  }
+
+  .foot-person {
+    color: white;
+    font-size: 20px;
+  }

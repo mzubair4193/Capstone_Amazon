@@ -58,6 +58,25 @@ const HomePage = () => {
                     );
                 })}
             </div>
+                 <div className="foot-link-cont">
+          <span className="foot-person">About Me</span>
+          <div className="foot-a-cont">
+            <a
+              href="https://github.com/mzubair4193"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <i className="fa-brands fa-github"></i>
+            </a>
+            <a
+              href="https://www.linkedin.com/in/muhammad-zubair-60024927a/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <i className="fa-brands fa-linkedin"></i>
+            </a>
+          </div>
+        </div>
         </>
     )
 }
